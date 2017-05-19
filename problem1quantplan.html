@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quantitative Modeling - MEttLE</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style-2.css">
+	<!-- <link rel="stylesheet" href="./css/introjs.css"> -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+    <script src="go.js"></script>
+  <!-- <link href="../assets/css/goSamples.css" rel="stylesheet" type="text/css" />  <!-- you don't need to use this --> 
+    <!-- this is only for the GoJS Samples framework -->
+<!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+<script src="Buttons.js"></script>
+</head>
+
+<section id="middlepart">
+	<div class="top-section"><!-- Navigation bar containg calculator,simulator info centre,etc -->
+		<div class="row">
+		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="simultor/index.html" target="_blank"><input id="problem1quantplan_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="calc.html" target="_blank"><input id="problem1quantplan_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="info.html" target="_blank"><input id="problem1quantplan_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="scratch.html" target="_blank"><input  id="problem1quantplan_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="problem1map.html" target="_blank"><input id="problem1quantplan_map" type="image" src="map.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1quantplan_logout" type="button" class="btn btn-default">Logout</button></a></div>
+		
+		</div>
+	</div>
+	<div class="register">
+		<div class="container-fluid">
+		<div class="row activity" style="text-align:center">
+		<div class="col-lg-6">
+		<!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
+			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px" height="580px" viewBox="-30 -30 550 550"  xml:space="preserve">			  		  		  
+            
+		<polygon id="problem1quantplan_task1" points="0,250 0,500 250,500" onclick="openfunc()" class="task_map"/>
+		<text  x="5" y="450" class="task_text"> Functional Modeling</text>
+			
+		<polygon id="problem1quantplan_task2" points="0,0 0,250 250,500 500,500" onclick="openqual()" class="task_map"/>
+		<text  x="80" y="300" class="task_text"> Qualitative Modeling </text>
+			
+		<polygon id="problem1quantplan_create" class="subtask_map" onclick="openquant()" points="250,0 250,250 500,250" />     
+        <text  x="260" y="200" class="subtask_text"> Create the equation </text>
+		<polygon id="problem1quantplan_eval" class="subtask_map" onclick="openquanteval()" points="250,250 375,375 500,250" />     
+        <text  x="320" y="280" class="subtask_text">Evaluate its Utility</text>
+		<polygon id="problem1quantplan_plan" class="current_subtask_map" onclick="openquantplan()" points="375,375 500,500 500,250" />     
+        <text  x="420" y="380" class="current_subtask_text" >Plan Next <tspan x="420" y="400" class="subtask_text">Steps</tspan></text>
+            
+		<polygon points="0,0 250,250 250,0" class="task_map" onclick="opencalc()"/>
+		<text id="problem1quantplan_task4" x="120" y="80" class="task_text"> Calculation  </text>
+		    
+		<polygon points="250,0 500,250 500,0" class="task_map" onclick="openeval()"/> 
+		<text id="problem1quantplan_task5" x="370" y="80" class="task_text">Evaluation </text>
+		
+		<text  x="520" y="450" class="current_task_text" transform="rotate(-90 520,450)"> Quantitative Modeling </text>	
+		<path id="problem1quantplan_task3" d="M 250 0 L 250 250 L 500 500 L 500 250 Z" class="current_task_path"/>	
+        </svg>    
+		</div>
+		<div class="col-lg-6">
+		<div class="row">
+		<div class="col-lg-4 task">
+	    Task			
+		</div>
+		<div class="col-lg-8 task_text">
+		Quantitative Modeling
+		</div> </div>
+		<div class="row">
+		<div class="col-lg-4 subtask">
+			Sub-Task <br> 3 of 3 		
+		</div>
+		<div class="col-lg-8 subtask_text">
+		Plan rest of the estimation process using this equation
+		</div>
+		</div>
+		<div class="row activity">
+			<p style="font-size:12pt;"> Write your plan  <a id="problem1quantplan_plan" href="https://goo.gl/forms/KIgqmVq4q01Qu7Sx1" target="_blank"> <span style="font-weight:bold;"> here </span> </a>. </br> You may want to look at the <a id="problem1quantplan_hint" href="problem1map.html" target="_blank"><span style="font-weight:bold;">problem map.</span></a> </p>
+		</div>
+			<div class="row activity">
+		     <p style="font-size:12pt;">  <a href="problem1map.html"><button id="problem1quantplan_next" type="button" class="btn btn-info"> Choose the next task you want to do. </button></a> </p>
+		     </div>
+		<!-- <div class="col-lg-12 KI-heading">
+		<h4>What steps will you follow to determine power using this model? </h4> </br>
+		<form id="problem1quantplan_steps" action="problem1map.html">
+		<fieldset>
+			Enter your answer here:<br>
+			<input type="text" name="perf" size="50" ><br>
+		</fieldset>
+		</form>
+		</div>
+		<div class="col-lg-12" style="text-align:center">
+		<div class="popup" id="problem1qualplan_hint" onclick="myFunction()"><input type="image" src="hintwndctive.png" style="width:120px;height:70px;"/>
+         <span class="popuptext" id="myPopup">Look at the problem map.</span>
+        </div> 
+		</div>
+		<div class="col-lg-12 KI-heading">
+        </br></br><h4>What assumptions or simplifications are you making in doing this estimation? </h4><br/>
+		<form id="problem1quantplan_simp" action="problem1map.html">
+		<fieldset>
+			Enter your answer here:<br>
+			<input type="text" name="steps" size="50" ><br>
+			<input type="submit" value="Submit">
+		</fieldset>
+		</form>
+			</div>
+			<div class="col-lg-12" style="text-align:center">
+		<div class="popup" id="problem1qualplan_hint2" onclick="myFunction2()"><input type="image" src="hintwndctive.png" style="width:120px;height:70px;"/>
+         <span class="popuptext" id="myPopup2">You may want to look at the simulator and information pages.</span>
+        </div> 
+		 --></div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+</body>
+<!-- <footer style="position: relative; bottom: 0; background: #000;">
+	<p>©2016   IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
+</footer>
+ --><!-- jQuery library -->
+<script src="./js2/jquery-1.12.0.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="./js2/bootstrap.min.js"></script>
+
+<!-- drag and drop js -->
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle('show');// changes the class attribute of the div
+	document.getElementById("problem1quantplan_map").src = "mapactive.png"//changes the src attribute of the image
+}
+</script>
+<script>
+// When the user clicks on div, open the popup
+function myFunction2() {
+    var popup = document.getElementById('myPopup2');
+    popup.classList.toggle('show');// changes the class attribute of the div
+	document.getElementById("problem1quantplan_sim").src = "simulatoractive.png"//changes the src attribute of the image
+	document.getElementById("problem1quantplan_info").src = "infoactiveng.png"//changes the src attribute of the image
+}
+</script>
+<script>
+function hidedetils(){
+document.getElementById("qual_desc").style.visibility = "hidden"
+}
+</script>
+<!-- the functions open a new window with the respective URL on clicking the corresponding divs/buttons--> 
+<script>
+function openfunc() {
+    window.open("problem1funcmodel.html", target="_self");
+}
+</script>
+ <script>
+function openquanteval() {
+    window.open("problem1quanteval.html", target="_self");
+}
+</script>
+ <script>
+function openquantplan() {
+    window.open("problem1quantplan.html", target="_self");
+}
+</script>
+<script>
+function openqual() {
+    window.open("problem1qualmodel.html", target="_self");
+}
+</script>
+<script>
+function openquant() {
+    window.open("problem1quantmodel.html", target="_self");
+}
+</script>
+<script>
+function opencalc() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+<script>
+function openeval() {
+    window.open("problem1eval.html", target="_self");
+}
+</script>
+ 
+ 

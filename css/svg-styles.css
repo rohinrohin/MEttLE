@@ -1,0 +1,37 @@
+.task_text{
+	font-size: 14pt;
+	color: #000;
+}
+
+.task_map{
+	fill: #ffffff;
+	stroke: #ccc;
+	stroke-width: 2;
+}
+
+.subtask_map{
+fill: #ffffff;
+stroke: #ccc;
+stroke-width: 1;	
+}
+
+.subtask_text{
+	font-size: 12pt;
+	color: #000;
+}
+.current_subtask_map{
+	fill:#E8EFEA;
+	stroke: #ccc;
+	stroke-width: 1;
+}
+
+.current_subtask_text{
+	font-size: 12pt;
+	color: #000;
+	font-weight: bold;
+}
+.current_task_path{
+stroke:blue; 
+stroke-width:2; 
+fill:none;
+}

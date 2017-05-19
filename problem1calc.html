@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculation - MEttLE</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style-2.css">
+</head>
+
+<section id="middlepart">
+	<div class="top-section"><!-- navigation bar-->
+		<div class="row">
+		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="simultor/index.html" target="_blank"><input id="problem1calc_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="calc.html" target="_blank"><input id="problem1calc_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="info.html" target="_blank"><input id="problem1calc_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="scratch.html" target="_blank"><input  id="problem1calc_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="problem1map.html" target="_blank"><input id="problem1calc_map" type="image" src="map.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1calc_logout" type="button" class="btn btn-default">Logout</button></a></div>
+
+		</div>
+	</div>
+	<div class="register">
+		<div class="container-fluid">
+		<div class="row activity" style="text-align:center">
+		<div class="col-lg-6">
+		<!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
+			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px" height="580px" viewBox="-30 -30 550 550"  xml:space="preserve">
+
+		<polygon id="problem1calc_task1" points="0,250 0,500 250,500" onclick="openfunc()" class="task_map"/>
+		<text  x="5" y="450" class="task_text"> Functional Modeling</text>
+
+		<polygon id="problem1calc_task2" points="0,0 0,250 250,500 500,500" onclick="openqual()" class="task_map"/>
+		<text  x="80" y="300" class="task_text"> Qualitative Modeling </text>
+
+		<polygon id="problem1calc_task3" points="250,0 250,250 500,500 500,250" onclick="openquant()" class="task_map"/>
+	    <text x="280" y="250" fill="#000000" font-size="18"> Quantitative Modeling </text>
+        <!-- A this is the calc page the subtasks in the calc task are shown -->
+		<polygon id="problem1calc_search" points="0,0 250,250 250,0" onclick="opencalc()" class="current_subtask_map"/>
+        <text x="90" y="40" class="current_subtask_text">Search Values <tspan x="90" y="60" class="subtask_text"> for variables </tspan></text>
+		<polygon id="problem1calc_eval" points="130,130 250,130 250,0" onclick="opencalceval()" class="current_subtask_map"/>
+        <text x="180" y="95" class="current_subtask_text">Evaluate <tspan x="180" y="115"  class="subtask_text"> Values </tspan> </text>
+		<polygon id="problem1calc_calc" points="130,130 250,250 250,130" onclick="opencalccalc()" class="current_subtask_map"/>
+        <text x="175" y="150" class="current_subtask_text">Calculate <tspan x="175" y="170"  class="subtask_text"> Estimate </tspan> </text>
+
+		<polygon id="problem1calc_task5" points="250,0 500,250 500,0" class="task_map" onclick="openeval()"/>
+		<text id="problem1calc_task5" x="370" y="80" class="task_text">Evaluation </text>
+
+        <text x="80" y="-10" class="task_text" > Calculation  </text>
+		<path id="problem1calc_task4"  d="M 0,0 L 250,250 L 250,0 Z" class="current_task_path"/>
+		</svg>
+		</div>
+		<div class="col-lg-6">
+		<div class="row">
+		<div class="col-lg-4 task">
+	    Task
+		</div>
+		<div class="col-lg-8 task_text">
+		Calculation
+		</div> </div>
+		<div class="row">
+		<div class="col-lg-4 subtask">
+			Sub-Tasks <br> 1,2,3
+		</div>
+		<div class="col-lg-8 subtask_text">
+		Search for the values of the variables in the equation, evaluate them and calculate the estimate.
+		</div>
+		</div>
+		<!-- <div class="row activity" style="text-align:center">
+		<form id="problem1calc_form" name="form1" method="post" action="">
+		<table width="100%" border="1" cellspacing="0" cellpadding="0" id="mans">
+			 <tr>
+			 <td> Parameter = Value</td>
+         <td> Reasonable (Yes/No) </td>
+          <td> Argument </td> </tr>
+              <tr>
+            <td>
+        <label for="11"></label>
+        <input type="text" name="11" id="11" />
+          </td>
+       <td>
+        <label for="12"></label>
+        <input type="text" name="12" id="12" />
+      </td>
+    <td>
+        <label for="13"></label>
+        <input type="text" name="13" id="13" />
+      </td>
+    <td><a id="problem1calc_del" onclick="delTableRow($('#mans'));" href="#"><img style="width:10px; height: 10px" src="minus.png"></a></td>
+  </tr>
+</table>
+</form>
+<button id="problem1calc_add" type="button" onclick="addTableRow($('#mans'));">Add row</button>
+		</div> -->
+		<div class="row activity" id="problem1calc_sheet" style="font-size:12pt;text-align:center">
+		<p> Use the sheet <a href="https://docs.google.com/spreadsheets/d/1dpcNwZsyZjfamHVuS2fhafHeWbObvOG1rgsykJiWOog/edit#gid=0" target="_blank"> <span style="font-weight:bold;"> here </span> </a> to enter your chosen values. </p> <!-- Opens a google spreadsheet with the mentioned URL in a new window -->
+		See your saved equation
+		<textarea id="problem1calc_modeltxt" name="model" rows="3" cols="90"></textarea></br>
+        <input type="file" id="problem1calc_fileToLoad">
+        <button onclick="loadFileAsText()">Load Selected File</button> <br><!-- Loads the selected file into the textarea -->
+		</div>
+		<div class="row activity" style="text-align:center">
+		<div class="col-lg-6" >
+		<div class="popup" id="problem1calc_hint2" onclick="myFunction2()"><input type="image" src="hintwndctive.png" style="width:120px;height:70px;"/><!-- to open the dialog box when the button shaped image is clicked -->
+         <span class="popuptext" id="myPopup2">What are the highest and lowest values of this parameter that you can think of? Is the value that you have chosen in between these two extremes? </span><!-- the dialogbox whose visiblity is hidden until the hint link is clicked -->
+		</div> </div>
+		<div class="col-lg-6" >
+		<div class="popup" id="problem1calc_hint3" onclick="myFunction3()"><input type="image" src="hintwndctive.png" style="width:120px;height:70px;"/><!-- to open the dialog box when the button shaped image is clicked -->
+         <span class="popuptext" id="myPopup3">Compare your chosen value with some other value for this parameter that you know for sure. For example, compare length with the length of a scale. Or mass with a mass of 1Kg. </span><!-- the dialogbox whose visiblity is hidden until the hint link is clicked -->
+		</div> </div>
+		</div>
+		<div class="row activity">
+		    <div class="col-sm-2"> </div>
+		    <div class="col-sm-8"> <a href="calc.html" target="_blank"><button id="problem1calc_open" type="button" class="btn btn-primary"> Open the calculator to calculate the estimate of power.</button></a> </div> <!-- opens calc.html file when the button is clicked -->
+		    <div class="col-sm-2"> </div>
+	        </div>
+		<div class="row activity" id="problem1calc_value" >
+		<p style="font-size:12pt;"> Enter your answer <a href="https://goo.gl/forms/0GVXoUT0x58vlnxy1" target="_blank"> <span style="font-weight:bold;"> here. </span> </a> </p> <!-- opens a link to the google form in a new window when the link is clicked -->
+		<a href="problem1eval.html"><button id="problem1calc_submit" type="button" class="btn btn-info"> Evaluate this value </button></a>
+		<!-- Navigates to problem1eval.html page when button is clicked -->
+		</div>
+		</div>
+		</div>
+		</div>
+</section>
+</body>
+<!-- <footer style="position: relative; bottom: 0; background: #000;">
+	<p>©2016   IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
+</footer>
+ --><!-- jQuery library -->
+<script src="./js2/jquery-1.12.0.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="./js2/bootstrap.min.js"></script>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle('show');
+	document.getElementById("quant_desc_hint").style.visibility = "visible";
+	}
+</script>
+<script>
+// When the user clicks on div, open the popup
+function myFunction2() {
+    var popup = document.getElementById('myPopup2');
+    popup.classList.toggle('show');//To change  the class of the element to show
+	}
+
+</script>
+<script>
+// When the user clicks on div, open the popup
+function myFunction3() {
+    var popup = document.getElementById('myPopup3');
+    popup.classList.toggle('show');//To change  the class of the element to show
+	}
+</script>
+
+<script>
+
+function hidedetils(){
+//TODO REMOVE POSSIBLE TYPO
+document.getElementById("calc_desc").style.visibility = "hidden"
+document.getElementById("quant_desc_hint").style.visibility = "hidden"
+}
+
+// To load the selectedfile and display its contents in the div
+function loadFileAsText()
+{
+    var fileToLoad = document.getElementById("problem1calc_fileToLoad").files[0];
+
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent)
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("problem1calc_modeltxt").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+</script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+// TODO: IN-DOCUMENT JS, BAD PRACTICE. TO REMOVE
+
+// adds a new row
+function addTableRow(jQtable){
+    jQtable.each(function(){
+        var tds = '<tr>';
+        jQuery.each($('tr:last td', this), function() {tds += '<td>'+$(this).html()+'</td>';});
+        tds += '</tr>';
+        if($('tbody', this).length > 0){$('tbody', this).append(tds);
+        }else {$(this).append(tds);}
+    });
+}
+
+// removes clicked row when the link is clicked
+// TODO: IN-DOCUMENT JS, BAD PRACTICE. TO REMOVE
+$(function(){
+    $('table').on('click','tr a',function(e){
+       e.preventDefault();
+      $(this).parents('tr').remove();
+    });
+});
+
+</script>
+
+
+<script>
+//TODO: MULTIPLE SCRIPTS TAGS PER FUNCTION?
+//to open the html page in a new window when the svg element is clicked
+function openfunc() {
+    window.open("problem1funcmodel.html", target="_self");
+}
+</script>
+ <script>
+ //to open the html page in a new window when the svg element is clicked
+function opencalceval() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+ <script>
+ //to open the html page in a new window when the svg element is clicked
+function opencalccalc() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function openqual() {
+    window.open("problem1qualmodel.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function openquant() {
+    window.open("problem1quantmodel.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function opencalc() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function openeval() {
+    window.open("problem1eval.html", target="_self");
+}
+</script>

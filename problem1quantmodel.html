@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quantitative Modeling - MEttLE</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style-2.css">
+	<?xml-stylesheet type="text/css" href="svg-styles.css" ?>
+	<script src="go.js"></script>
+    <script src="Buttons.js"></script>
+</head>
+<body>
+<section id="middlepart">
+	<div class="top-section">
+		<div class="row">
+		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="simultor/index.html" target="_blank"><input id="problem1quantmodel_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="calc.html" target="_blank"><input id="problem1quantmodel_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="info.html" target="_blank"><input id="problem1quantmodel_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="scratch.html" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="problem1map.html" target="_blank"><input id="problem1quantmodel_map" type="image" src="map.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
+		</div>
+	</div>
+	<div class="register">
+		<div class="container-fluid">
+		<div class="row activity" style="text-align:center">
+		<div class="col-lg-6">
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px" height="580px" viewBox="-30 -30 550 550"  xml:space="preserve">			  		  		  
+            
+		<polygon id="problem1quantmodel_task1" points="0,250 0,500 250,500" onclick="openfunc()" class="task_map"/>
+		<text  x="5" y="450" class="task_text"> Functional Modeling</text>
+			
+		<polygon id="problem1quantmodel_task2" points="0,0 0,250 250,500 500,500" onclick="openqual()" class="task_map"/>
+		<text  x="80" y="300" class="task_text"> Qualitative Modeling </text>
+			
+		<polygon id="problem1quantmodel_create" class="current_subtask_map" onclick="openquant()" points="250,0 250,250 500,250" />     
+        <text  x="260" y="200" class="current_subtask_text"> Create the equation </text>
+		<polygon id="problem1quantmodel_eval" class="subtask_map" onclick="openquanteval()" points="250,250 375,375 500,250" />     
+        <text  x="320" y="280" class="subtask_text">Evaluate its Utility</text>
+		<polygon id="problem1quantmodel_plan" class="subtask_map" onclick="openquantplan()" points="375,375 500,500 500,250" />     
+        <text  x="420" y="380" class="subtask_text" >Plan Next <tspan x="420" y="400" class="subtask_text">Steps</tspan></text>
+            
+		<polygon id="problem1quantmodel_task4" points="0,0 250,250 250,0" class="task_map" onclick="opencalc()"/>
+		<text  x="120" y="80" class="task_text"> Calculation  </text>
+		    
+		<polygon id="problem1quantmodel_task5" points="250,0 500,250 500,0" class="task_map" onclick="openeval()"/> 
+		<text  x="370" y="80" class="task_text">Evaluation </text>
+		
+		<text  x="520" y="450" class="current_task_text" transform="rotate(-90 520,450)"> Quantitative Modeling </text>	
+		<path id="problem1quantmodel_task3" d="M 250 0 L 250 250 L 500 500 L 500 250 Z" class="current_task_path"/>	
+        </svg>
+		</div>
+		<div class="col-lg-6">
+		<div class="row">
+		<div class="col-lg-4 task">
+	    Task			
+		</div>
+		<div class="col-lg-8 task_text">
+		Quantitative Modeling
+		</div> </div>
+		<div class="row">
+		<div class="col-lg-4 subtask">
+			Sub-Task <br> 1 of 3 		
+		</div>
+		<div class="col-lg-8 subtask_text">
+		Create the model: Focus question - "What is the equation connecting power with other parameters?"	
+		</div>
+		</div>
+		<div class="row"> <br> </div>
+		<div class="col-lg-12">
+		<div class="row activity">
+		<p style="font-size:12pt;"> To make an equation, you may use the <span style="background-color:#759EB8;color:white;">&nbspnumbers&nbsp</span>, <span style="background-color:#759EB8;color:white;">&nbsprelations&nbsp</span> and <span style="background-color:#426793;color:white;">&nbspvariables &nbsp</span> below and drag them to the bottom canvas to arrange them into an equation. </p>
+			</div></div>
+			<!-- contains the span elements that are made draggable -->
+		<div class="row activity">
+		<div class="col-lg-12  drag-p connectedSortable" id="problem1quantmodel_actions">
+			<span style="background-color:#759EB8;">&nbsp0&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp1&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp2&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp3&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp4&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp5&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp6&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp7&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp8&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp9&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp0&nbsp</span>
+			<span style="background-color:#759EB8;">&nbsp+&nbsp</span>
+		<span style="background-color:#759EB8;">&nbsp-&nbsp</span> 
+		<span style="background-color:#759EB8;">&nbsp*&nbsp</span> 
+		<span style="background-color:#759EB8;">&nbsp^&nbsp</span> 
+		<span style="background-color:#759EB8;">&nbsp(&nbsp</span> 
+		<span style="background-color:#759EB8;">&nbsp)&nbsp</span> 
+		<span style="background-color:#759EB8;">&nbsp/&nbsp</span> 
+		<span style="background-color:#759EB8;">&nbsp=&nbsp</span>  
+		<span style="background-color:#426793;">&nbspP&nbsp</span>   
+		<span style="background-color:#426793;">&nbspv&nbsp</span>
+		<span style="background-color:#426793;">&nbspw&nbsp</span>
+		<span style="background-color:#426793;">&nbspa&nbsp</span>   
+		<span style="background-color:#426793;">&nbspT&nbsp</span>
+		<span style="background-color:#426793;">&nbspV&nbsp</span>
+		<span style="background-color:#426793;">&nbspI&nbsp</span>   
+		<span style="background-color:#426793;">&nbspKm&nbsp</span>
+		<span style="background-color:#426793;">&nbspR&nbsp</span>
+		<span style="background-color:#426793;">&nbspI0&nbsp</span>
+		<span style="background-color:#426793;">&nbspd&nbsp</span>
+		<span style="background-color:#426793;">&nbspl&nbsp</span>
+		<span style="background-color:#426793;">&nbspm&nbsp</span>
+		</div>
+		<div class="col-lg-12">
+		<div class="row activity">
+		<p style="font-size:10pt;"> P:Power &nbsp&nbsp&nbsp v: Linear Velocity &nbsp&nbsp&nbsp w: Angular Velocity &nbsp&nbsp&nbsp a: Acceleration  &nbsp&nbsp&nbsp T: Torque &nbsp&nbsp&nbsp V: Voltage &nbsp&nbsp&nbsp I: Current &nbsp&nbsp&nbsp Km: Motor Constant &nbsp&nbsp&nbsp R: Resistance of coil &nbsp&nbsp&nbsp I0: No load current &nbsp&nbsp&nbsp d: Wheel diameter &nbsp&nbsp&nbsp m: Weight of car &nbsp&nbsp&nbsp l: Track length </p>
+		</div></div>
+		<div class="col-lg-12">
+		<p style="font-size:12pt;"> Drop here to make the equation. </p>
+		</div>
+ 		<div class="col-lg-12 connectedSortable" id="problem1quantmodel_dropa">
+
+		</div>
+<!-- 		</div>
+		<div class="row activity" style="text-align:center">
+		<form action="problem1quanteval.html">
+		<fieldset>
+			Enter the equation here:<br>
+			<input id="problem1quantmodel_statement" type="text" name="func-model" size="50" ><br>
+			<input id="problem1quantmodel_submit" type="submit" value="Submit">
+		</fieldset>
+		</form>
+		</div>
+		<div class="row activity" style="text-align:center">
+		<button id="problem1quantmodel_see" type="button" class="btn btn-primary"> See your last created equation </button> -->
+		<!-- Code for retreiving stored statement from db and displaying 
+		</div> -->
+		<div class="row activity" style="font-size:12pt;text-align:center" >
+		Enter the equation below and save it
+		<textarea id="problem1quantmodel_modeltxt" name="model" rows="2" cols="80"></textarea></br>		
+	    File name to save as: <input id="problem1quantmodel_FileNameToSaveAs"></input> 
+        <button onclick="saveTextAsFile()">Save</button> <br> <br>
+        See your saved equation <br>
+         <input type="file" id="problem1quantmodel_fileToLoad">
+        <button onclick="loadFileAsText()">Load Selected File</button> <br>
+		<a href="problem1quanteval.html"><button id="problem1quantmodel_next" type="button" class="btn btn-info"> Check if this is a useful model </button></a></p>
+		</div>
+		</div>
+		</div>
+		</div>
+     </div>
+</section>
+</body>
+<!-- <footer style="position: relative; bottom: 0; background: #000;">
+	<p>©2016   IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
+</footer>
+ --><!-- jQuery library -->
+<script src="./js2/jquery-1.12.0.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="./js2/bootstrap.min.js"></script>
+
+<!-- drag and drop js -->
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<!-- <script>
+  $( function() {
+    $( "#problem1funcmodel_actions, #problem1funcmodel_dropa" ).sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  } );
+  </script> -->
+  <!-- <script>
+  $( function() {
+    $( "#problem1funcmodel_actions,#problem1funcmodel_parts, #problem1funcmodel_dropa, #problem1funcmodel_dropb, #problem1funcmodel_dropc, #problem1funcmodel_dropd" ).sortable();
+    $( "#problem1funcmodel_actions,#problem1funcmodel_parts, #problem1funcmodel_dropa, #problem1funcmodel_dropb, #problem1funcmodel_dropc, #problem1funcmodel_dropd").disableSelection();
+  } );
+  </script>
+ -->
+ <script>
+ $( "#problem1quantmodel_actions" ).sortable({
+    connectWith: ".connectedSortable",// problem1quantmodel_actions items are connected to the elements whose class=connectedSortable
+    forcePlaceholderSize: false, //the placeholders do not have a size
+    helper: function(e,li) {//creates a clone of the element and the clone is dragged
+        copyHelper= li.clone().insertAfter(li);
+        return li.clone();
+    },
+    stop: function() { // after the drag event has occured if the copyHelper is still present(not made null as it was not dropped in the dropa div)
+        copyHelper && copyHelper.remove();
+    }
+});
+//makes the elements with the class 'connectedSortable' drag-and-droppable
+    $(".connectedSortable").sortable({
+        receive: function(e,ui) { //recive event is triggered when an item from a connected sortable list is dropped into another list
+								  // e-event that triggered it; ui-object;
+            copyHelper= null; //the copyHelper value is made null i.e., cannot place the item into a list whose class is not 'connectedSortable'
+        }
+});
+$("#problem1quantmodel_dropa").sortable({
+    connectWith: '.sortable',// connects the items in problem1quantmodel_dropa with those elements with class 'sortable'
+}).droppable({greedy: true})//greedy set to true, causes any parent to recieve the draggable element
+
+$('body').droppable({ // when the draggable element is dropped on the body it is removed
+    drop: function ( event, ui ) {			
+        ui.draggable.remove();
+    }
+});
+</script>
+
+<!-- ttn: #F3CA40 -->
+<!-- tsk outline: #474F4C -->
+<!-- tsk fill:#ffffff -->
+<!-- current tsk: #157F1F
+current subtsk: #52BF5D -->
+<!-- text background: #426793, #759EB8 -->
+<!-- type="button" class="btn btn-primary" -->
+
+<script>
+//the functions open a new window with the respective URL on clicking the corresponding divs/buttons
+function openfunc() {
+    window.open("problem1funcmodel.html", target="_self");
+}
+</script>
+ <script>
+function openquanteval() {
+    window.open("problem1quanteval.html", target="_self");
+}
+</script>
+ <script>
+function openquantplan() {
+    window.open("problem1quantplan.html", target="_self");
+}
+</script>
+<script>
+function openqual() {
+    window.open("problem1qualmodel.html", target="_self");
+}
+</script>
+<script>
+function openquant() {
+    window.open("problem1quantmodel.html", target="_self");
+}
+</script>
+<script>
+function opencalc() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+<script>
+function openeval() {
+    window.open("problem1eval.html", target="_self");
+}
+</script>
+ <script type="text/javascript">
+ //To save the contents of the textarea into a file and download it onto the user's device 
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById("problem1quantmodel_modeltxt").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("problem1quantmodel_FileNameToSaveAs").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ //loads the file that the user selects into the text area
+function loadFileAsText()
+{
+    var fileToLoad = document.getElementById("problem1quantmodel_fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("problem1quantmodel_modeltxt").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+ 
+</script>
+ 

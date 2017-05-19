@@ -1,0 +1,626 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@font-face{
+	font-family: Slabo;
+	src: url(../fonts/Slabo27px-Regular.ttf);
+}
+@font-face{
+	font-family: myriad-pro;
+	src: url(../fonts/Myriad-Pro_31655.ttf);
+}
+#menu-header{
+	z-index: 9999;
+	width: 100%;
+}
+#nav-menu{
+	background: #0098f9;
+	width: 100%;
+	border-color: #007ac8;
+	font-family: myriad-pro;
+	font-size: 1.125em;
+	z-index: 9999;
+}
+#nav-menu ul{
+	background: #0098f9;
+	color: #fff;
+	width: 100%;
+}
+#nav-menu ul li a{
+	color: inherit;
+}
+#nav-menu ul li:hover,#nav-menu ul li:focus,#nav-menu ul li:visited{
+	background: #007ac8;
+}
+#nav-menu ul li a:hover,#nav-menu ul li a:focus,#nav-menu ul li a:visited{
+	background: #007ac8;
+}
+#nav-menu .navbar-item{
+	border-color: #007ac8;
+}
+.navbar-inverse .navbar-toggle{
+	border-color: #007ac8;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus{
+	background-color: #007ac8;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
+	background-color: #007ac8;
+}
+.navigation{
+	text-align: center;
+	width: 100%;
+}
+.navbar-nav>li{
+  	float: none;
+  	display: inline-block;
+}
+#middle-part{
+	background: #efefef;
+	width: 100%;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	z-index: -9999;
+}
+#title-heading{
+	background: #007ac8;
+	height: auto;
+	z-index: 9999;
+}
+#title-heading p{
+	text-align: center;
+	font-family: myriad-pro;
+	font-size: 1.325em;
+	color: #fff;
+	/*padding: 0.1em;*/
+	margin-bottom: 0px;
+}
+#title-heading p a:hover, #title-heading p a:focus, #title-heading p a:visited{
+	text-decoration: none;
+} 
+.bg-part a{
+	font-size: 1.25em;
+	font-family: Slabo;
+	text-decoration: none;
+	color: #1665c1;
+}
+.bg-part a:hover{
+	text-decoration: none;
+	color: #1665c1;
+}
+/*Overview style*/
+.overview-heading{
+	font-size: 1.5em;
+	font-family: Slabo;
+	color: #000;
+}
+.category{
+	padding: 0.25em 2em;
+	font-size: 1.1em;
+	font-family: myriad-pro;
+	color: #000;
+}
+.sub-category{
+	padding: 0.25em 2em;
+}
+/*END*/
+/*Publications Style*/
+.heading{
+	font-family: Slabo;
+	font-size: 1.7em;
+	color: #000;
+	padding: 0.1em 1em;
+	background: #ddd;
+}
+.sub-pub-category{
+	padding: 0.25em 2em;
+	text-align: justify;
+	font-size: 1.2em;
+	font-family: Slabo;
+	color: #000;
+}
+/*END*/
+/*Projects Style*/
+.projects-heading{
+	font-size: 1.5em;
+	font-family: Slabo;
+	color: #000;
+}
+.pro-category{
+	padding: 0.25em 2em;
+	font-size: 1.1em;
+	font-family: myriad-pro;
+	color: #000;
+}
+.pro-category li a{
+	font-size: 1.05em;
+	font-family: Slabo;
+	text-decoration: none;
+	color: #1665c1;
+}
+.pro-category li a:hover{
+	text-decoration: none;
+	color: #1665c1;
+}
+/*END*/
+/*Programmes*/
+.programme p{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+}
+.programme p a{
+	font-size: 1em;
+}
+.programme ul{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+	padding: 0.25em 2em;
+}
+/*END*/
+/*Admission*/
+.admissions p{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+}
+.admissions p a{
+	font-size: 1em;
+}
+.admissions li a{
+	font-size: 1em;
+}
+.admissions ul{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+	padding: 0.25em 2em;
+}
+/*END*/
+/*CEP*/
+.CEP-heading{
+	font-size: 1.5em;
+	font-family: Slabo;
+	color: #000;
+}
+.cep-part{
+	padding: 0.25em 2em;
+	font-size: 1.1em;
+	font-family: myriad-pro;
+	color: #000;
+}
+/*END*/
+/*Consultancy*/
+.consult-part{
+	padding: 0.25em 2em;
+	font-size: 1.1em;
+	font-family: myriad-pro;
+	color: #000;
+}
+/*End*/
+/*Honorary*/
+.honor_heading{
+	font-size: 1.5em;
+	font-family: Slabo;
+	color: #000;
+}
+.honor-part{
+	padding: 0.25em 2em;
+	font-size: 1.1em;
+	font-family: myriad-pro;
+	color: #000;
+}
+/*End*/
+/*Faculty*/
+.convener,.Core-faculty,.phd-guides,.Adjunct-Faculty,.Visiting-Faculty{
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+}
+.faculty .convener p{
+	text-align: center;
+	font-size: 2.586em;
+	font-family: Slabo;
+	color: #000;
+}
+.faculty .Core-faculty p{
+	text-align: center;
+	font-size: 2.586em;
+	font-family: Slabo;
+	color: #000;
+}
+.faculty .phd-guides p{
+	text-align: center;
+	font-size: 2.586em;
+	font-family: Slabo;
+	color: #000;
+}
+.faculty .Adjunct-Faculty p{
+	text-align: center;
+	font-size: 2.586em;
+	font-family: Slabo;
+	color: #000;
+}
+.faculty .Visiting-Faculty p{
+	text-align: center;
+	font-size: 2.586em;
+	font-family: Slabo;
+	color: #000;
+}
+.faculty-img img{
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+}
+.faculty-brief p:nth-child(1){
+	font-family: myriad-pro;
+	font-size: 1.35em;
+	color: #000;
+	text-align: left;
+}
+.faculty-brief p:nth-child(2){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.faculty-brief p:nth-child(3){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.faculty-brief p:nth-child(4){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.home-btn{
+	background: #1665c1;
+	border: 2px solid #1665c1;
+	padding: 0.2em 1em;
+}
+/*END*/
+/*Students*/
+.students-part{
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+}
+.students-img img{
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+}
+.students-brief p:nth-child(1){
+	font-family: myriad-pro;
+	font-size: 1.35em;
+	color: #000;
+	text-align: left;
+}
+.students-brief p:nth-child(2){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.students-brief p:nth-child(3){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.students-brief p:nth-child(4){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+/*End*/
+/*Staffs*/
+.staffs-part{
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+}
+.staffs-img img{
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+}
+.staffs-brief p:nth-child(1){
+	font-family: myriad-pro;
+	font-size: 1.35em;
+	color: #000;
+	text-align: left;
+}
+.staffs-brief p:nth-child(2){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.staffs-brief p:nth-child(3){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.staffs-brief p:nth-child(4){
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+	text-align: left;
+}
+.staff-heading{
+	text-align: center;
+	font-family: myriad-pro;
+	font-size: 1.5em;
+	color: #000;
+}
+/*End*/
+/*Research Resources*/
+.research-res-part p{
+	font-family: myriad-pro;
+	font-size: 1.17em;
+	color: #000;
+}
+.research-res-part p a , .research-res-part p a:hover , .research-res-part p a:visited{
+	text-decoration: none;
+	color: #007ac8;
+	font-size: 1.1em;
+}
+.research-res-part ul{
+	padding-left: 2em;
+}
+.research-res-part ul li{
+	list-style: none;
+	list-style-image: url('../images/bullets-blk.svg');
+}
+.template-part{
+	padding-top: 0.325em;
+	padding-bottom: 0.325em;
+}
+.even{
+	background: #ededed;
+}
+/*End*/
+/*Events-part*/
+.workshop-heading{
+	font-family: myriad-pro;
+	font-size: 1.7em;
+	padding-bottom: 0.15em;
+}
+.events-workshop-title p{
+	font-family: myriad-pro;
+	font-size: 1.2em;
+	background: #ddd;
+	padding-top: 0.25em;
+	padding-left: 1em;
+	padding-bottom: 0.25em;
+	color: #000;
+	margin-bottom: 0px;
+}
+.events-workshop-para p{
+	font-family: myriad-pro;
+	font-size: 1em;
+}
+.events-workshop-para p a, .events-workshop-para p a:hover, .events-workshop-para p a:visited{
+	font-family: myriad-pro;
+	text-decoration: none;
+	color: #007ac8;
+	font-size: 1.1em;
+}
+/*End*/
+/*Student Theses*/	
+.long-theses p:nth-child(1){
+	font-family: Slabo;
+	font-size: 1.25em;
+}
+.long-theses p{
+	font-family: myriad-pro;
+	font-size: 1em;
+}
+.top-button{
+	background: #1665c1;
+	border: 2px solid #1665c1;
+	padding: 0.2em 1em;
+	color: #fff;
+	font-size: 1em;
+}
+/*End*/
+.welcome-part{
+	background: #fff;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.welcome-part p:nth-child(1){
+	font-size: 2em;
+	font-family: Slabo;
+	color: #000;
+}
+.welcome-brief{
+	font-family: Slabo;
+	font-size: 1.25em;
+	color: #000;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	text-align: justify;
+}
+.welcome-part li{
+	font-family: Slabo;
+	font-size: 1.25em;
+	color: #000;
+	margin-bottom: 2px;
+	list-style: none;
+}
+.gallery{
+	background: #fff;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.featured-items{
+	background: #fff;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.featured-items p:nth-child(1){
+	font-size: 2em;
+	font-family: Slabo;
+	color: #000;
+}
+.featured-items ol li{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+	list-style: none;
+	margin-bottom: 10px;
+	text-align: justify;
+}
+.featured-items ol li a{
+	text-decoration: none;
+	color: #1665c1;
+}
+.featured-items ol li a:hover{
+	text-decoration: none;
+	color: #1665c1;
+}
+.news-part{
+	background: #fff;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.news-part p:nth-child(1){
+	font-size: 2em;
+	font-family: Slabo;
+	color: #000;
+}
+.news-part ol li{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+	list-style: none;
+	margin-bottom: 10px;
+	text-align: justify;
+}
+.news-part ol li a{
+	text-decoration: none;
+	color: #1665c1;
+}
+.news-part ol li a:hover{
+	text-decoration: none;
+	color: #1665c1;
+}
+.internal-part{
+	background: #fff;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.internal-part p:nth-child(1){
+	font-size: 2em;
+	font-family: Slabo;
+	color: #000;
+}
+.internal-part ol li{
+	font-size: 1.25em;
+	font-family: Slabo;
+	color: #000;
+	list-style: none;
+	margin-bottom: 10px;
+	display: inline-block;
+	padding: 5px 20px;
+}
+.internal-part ol li a{
+	color: inherit;
+}
+.internal-part ol li a:hover{
+	text-decoration: none;
+}
+.internal-part ol li a:focus{
+	text-decoration: none;
+}
+#footer-area{
+	background: #0098f9;
+	padding-top: 1.25em;
+	padding-bottom: 1.25em;
+}
+.footer_links{
+	height: auto;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+}
+.footer_links p:nth-child(1){
+	font-family: Slabo;
+	font-size: 1.3em;
+	color: #004c7c;
+	padding-left: 10px;
+}
+.footer_links p a{
+	font-family: myriad-pro;
+	font-size: 1.056em;
+	color: #fff;
+	font-weight: 100;
+	padding-left: 12px;
+}
+.footer_links p a:hover{
+	text-decoration: none;
+}
+.footer_links p a:focus{
+	text-decoration: none;
+}
+.bottom-footer p:nth-child(1){
+	font-family: myriad-pro;
+	font-size: 1.275em;
+	text-align: center;
+	color: #fff;
+}
+.bottom-footer p:nth-child(2){
+	font-family: myriad-pro;
+	font-size: 1em;
+	text-align: center;
+	font-weight: 100;
+	color: #fff;
+}
+.bottom-footer p:nth-child(3){
+	font-family: myriad-pro;
+	font-size: 1em;
+	text-align: center;
+	font-weight: 100;
+	color: #fff;
+}
+/*for menu*/
+@media screen and (max-width: 768px) and (min-width: 320px){
+	.navbar-nav{
+		margin: 0;
+	}
+	.navbar-nav>li{
+		display: block;
+		float: none;
+	}
+}
+/*for header title and logo*/
+@media screen and (max-width: 890px) and (min-width: 769px){
+	.header-title{
+		padding-left: 8px;
+	}
+}
+@media screen and (max-width: 768px) and (min-width: 320px){
+	.header-title{
+		padding-left: 15px;
+		text-align: center;
+	}
+	.logo{
+		padding-right: 15px;
+	}
+}
+.pTAJ{
+	text-align: justify;
+}
