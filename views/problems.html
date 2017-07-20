@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Modeling-based Estimation Learning Environment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tells the browser how the width of the page should be for every device-->
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
+  <!-- To use bootstrap for styling -->
+  <link rel="stylesheet" href="/stylesheets/custom/migrated.css">
+  <!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+</head>
+
+<body>
+  <section class="middlepart">
+    <div class="top-section">
+      <!-- for the navigation bar on the top -->
+      <div class="container-fluid">
+        <div class="col-lg-5 col-md-5 col-sm-5">
+          <p>MEttLE</p>
+        </div>
+        <div class="col-sm-5"> </div>
+        <div class="col-sm-2" style="text-align:center;vertical-align:middle"> <a href="logout"><button id="problems_logout" type="button" class="btn btn-default">Logout</button></a></div>
+        <!--  logout button which is a link to the logout page -->
+      </div>
+    </div>
+    <div class="register">
+      <div class="info">
+        <p> Choose which problem you want to solve </p>
+      </div>
+      <div class="container-fluid">
+        <div class="col-lg-12">
+          <div class="row activity" style="margin-top: 15px;">
+            <div class="col-lg-4" style="text-align: center">
+              <img src="/images/car.jpeg" width="400"><br>
+              <div id="p1_detail"style="display: none; text-align: left; width: 400px; margin: auto; margin-top: 7px;">You are participating in an electric car race in which you are required to design an electric car of weight 7kg with wheel diameters of 4” that can accelerate at 1m/s^2 and traverse a track of 10m without burning out. <br><br>Estimate the electrical power needed to achieve these specifications.</div>
+              <button style="margin-top: 10px;" id="problems_p1" type="button" class="btn btn-primary" >Problem 1</button>
+              <!-- The button is a link to the problem1 page -->
+            </div>
+            <div class="col-lg-4" style="text-align: center; opacity: 0.3;">
+              <img src="/images/car.jpeg" style="filter: grayscale(100%);" width="400"><br>
+              <a href="problem2"><button style="margin-top: 10px;" id="problems_p2" type="button" class="btn btn-primary" disabled>Problem 2</button></a>
+            </div>
+            <div class="col-lg-4" style="text-align: center; opacity: 0.3;">
+              <img src="/images/car.jpeg" style="filter: grayscale(100%);" width="400"><br>
+              <a href="problem3"><button style="margin-top: 10px;" id="problems_p3" type="button" class="btn btn-primary" disabled>Problem 3</button></a>
+              <!-- the problem1 and problem2 buttons are disabled -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br/><br/><br/>
+  </section>
+  <script>
+    var isDetailOpened1 = false;
+    document.getElementById("problems_p1").addEventListener('click', function () {
+      if(isDetailOpened1) {
+        document.location.href = "./problem/1/structure";
+      } else {
+        document.getElementById("p1_detail").style.display = "block";
+        document.getElementById("problems_p1").innerHTML = "Begin Solving";
+        isDetailOpened1 = true;
+      }
+    });
+  </script>
+</body>

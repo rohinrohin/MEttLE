@@ -1,0 +1,140 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Problem Map- MEttLE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/custom/migrated.css">
+  <!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+</head>
+
+<body>
+  <section id="middlepart">
+    <div class="top-section">
+      <!-- defines the top-section containg the buttons for calculator,simulator,info center, scribble pad and problem map and logout -->
+      <div class="row">
+        <div class="col-sm-6" style="text-align:center;vertical-align:middle">
+          <p>MEttLE</p>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="simultor/index" target="_blank"><input id="problem1quantmodel_sim" type="image" src="/images/simulator.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="/calculator" target="_blank"><input id="problem1quantmodel_calc" type="image" src="/images/calc.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="/information" target="_blank"><input id="problem1quantmodel_info" type="image" src="/images/info.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="/scratch" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="/images/scribble.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="map" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <!-- In the above 12 lines images are being used for the various options and they are made to look like buttons and the anchor tag is added to load the appropriate pages-->
+        <div class="col-sm-1" style="text-align:center"> <a href="logout"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
+      </div>
+    </div>
+    <div class="register">
+      <div class="info">
+        <p> Click on any of the tasks to do it. </p>
+      </div>
+      <div class="container-fluid">
+        <div class="col-lg-12">
+          <div class="row activity" style="text-align:center">
+
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="560px"
+              height="560px" viewBox="-20 -20 540 540" xml:space="preserve">
+              <!-- viewport gives the avg element an internal coordinate system that goes from (-20,-20) to (540,540) and so, 1 unit inside svg is 1 px -->
+
+              <!-- This is for the the box on the left hand side -->
+              <rect width="500" height="500" fill="#bdbdbd" />
+              <!-- Draws a rectangle 500x500 -->
+              <!-- Draws a polygon with 3 sides with points (0,250),(0,500),(250,500). Onclicking the polygon it makes the element with id func_desc visible and on doubleclicks hides the same element. It is similiar for the other polygons as well.-->
+              <g onclick="openfunc();">
+                <polygon id="problem1details_func" points="0,250 0,500 250,500" class="task_map" />
+                <text id="problem1details_task1" x="5" y="450" class="task_text"> Functional Modeling</text>
+                <text x="5" y="470" class="task_text_eg"> e.g. </text>
+                <text x="5" y="490" class="task_text_eg"> How does an electric car run? </text>
+              </g>
+
+              <g onclick="openqual();">
+                <polygon id="problem1details_qual" points="0,0 0,250 250,500 500,500" class="task_map" //>
+                <text id="problem1details_task2" x="30" y="250" class="task_text"> Qualitative Modeling </text>
+                <text x="100" y="270" class="task_text_eg"> e.g. </text>
+                <text x="100" y="290" class="task_text_eg"> How is the performance
+                  <tspan x="100" y="310" class="task_text_eg"> of the car affected </tspan>
+                  <tspan x="100" y="330" class="task_text_eg"> by various parameters? </tspan>
+                </text>
+              </g>
+
+              <g onclick="openquant();">
+                <polygon id="problem1details_quant" points="250,0 250,250 500,500 500,250" class="task_map" />
+                <text id="problem1details_task3" x="260" y="240" class="task_text"> Quantitative Modeling </text>
+                <text x="320" y="260" class="task_text_eg"> e.g. </text>
+                <text x="320" y="280" class="task_text_eg"> What is the equation
+                  <tspan x="320" y="300" class="task_text_eg"> connecting power</tspan>
+                  <tspan x="320" y="320" class="task_text_eg"> with other parameters? </tspan>
+                </text>
+              </g>
+
+              <g onclick="opencalc();">
+                <polygon id="problem1details_calc" points="0,0 250,250 250,0" class="task_map" />
+                <text id="problem1details_task4" x="100" y="20" class="task_text"> Calculation </text>
+                <text x="125" y="40" class="task_text_eg"> e.g. </text>
+                <text x="125" y="60" class="task_text_eg"> Substitute
+                  <tspan x="125" y="80" class="task_text_eg"> reasonable </tspan>
+                  <tspan x="125" y="100" class="task_text_eg"> values and </tspan>
+                  <tspan x="125" y="120" class="task_text_eg"> calculate power. </tspan>
+                </text>
+              </g>
+              <g onclick="openeval();">
+                <polygon id="problem1details_eval" points="250,0 500,250 500,0" class="task_map" />
+                <text id="problem1details_task5" x="330" y="20" class="task_text">Evaluation </text>
+                <text x="360" y="40" class="task_text_eg"> e.g. </text>
+                <text x="360" y="60" class="task_text_eg"> Is the determined
+                  <tspan x="360" y="80" class="task_text_eg"> value of power </tspan>
+                  <tspan x="360" y="100" class="task_text_eg"> reasonable? </tspan>
+                </text>
+              </g>
+            </svg>
+
+          </div>
+        </div>
+      </div>
+  </section>
+</body>
+<!-- onclick='document.getElementById("qual_desc").style.visibility = "hidden"' -->
+<!-- <polygon  fill="#6298BC" points="250,0 250,250 500,500 500,250 "/>
+ -->
+<script>
+
+  function openfunc() {
+    window.open("./tasks/functional/model", target = "_self");
+  }
+// opens the document problem1funcmodel in the same frame when the function is called
+
+  function openqual() {
+    window.open("./tasks/qualititative/model", target = "_self");
+  }
+// opens the document problem1qualmodel in the same frame when the function is called
+
+  function openquant() {
+    window.open("./tasks/quantitative/model", target = "_self");
+  }
+// opens the document problem1quantmodel in the same frame when the function is called
+
+  function opencalc() {
+    window.open("./tasks/calculation/calculation", target = "_self");
+  }
+// opens the document problem1calc in the same frame when the function is called
+
+  function openeval() {
+    window.open("./tasks/evaluation/evaluation", target = "_self");
+  }
+// opens the document problem1eval in the same frame when the function is called
+
+</script>

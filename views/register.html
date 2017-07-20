@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to MEttLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
+    <!-- To use bootstrap for styling -->
+    <link rel="stylesheet" href="/stylesheets/custom/migrated.css">
+    <link rel="stylesheet" href="/stylesheets/custom/login.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+</head>
+
+<body style="height: 100vh;">
+    <section class="middlepart">
+        <div class="top-section">
+            <div class="container-fluid">
+                <div class="col-lg-12" style="text-align: center">
+                    <p>Modeling-Based Estimation Learning Environment (MEttLE)</p>
+                </div>
+            </div>
+        </div>
+        <div class="register" style="height: 46%;">
+            <div class="info">
+                <p> Welcome to MEttLE </p>
+            </div>
+            <div class="container-fluid" style="height: 100%;">
+                <div style="text-align: center; margin: auto; height: 100%; margin-top: 40px;">
+                    <div class="content-wrap" style="height: 100%; display: flex; align-items: center; flex-direction: column;">
+                        <span style="font-size: 16px;font-weight: 400;">Kindly ask the administrator to type in the admin key and register below. </span>
+                        <form name="register-form" id="login_details" action="register" method="post">
+                            <div class="login">
+                                <div class="login-screen">
+                                    <div class="login-form">
+                                        {{#if errorOccured}}
+                                            <div class="alert alert-danger">
+                                                {{#each errors}}
+                                                    <span style="display: block;"><strong>Error!</strong> {{this}}.</span>
+                                                {{/each}}
+                                            </div>
+                                        {{/if}}
+                                        <div class="control-group">
+                                            <input type="email" class="login-field" value="" name="email" placeholder="email" id="login-name">
+                                            <label class="login-field-icon fui-user" for="login-name"></label>
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="password" class="login-field" value="" name="password" placeholder="password" id="login-pass">
+                                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="password" class="login-field" value="" name="passwordConfirm" placeholder="confirm password" id="login-pass">
+                                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="password" class="login-field" value="" name="adminKey" placeholder="admin key" id="login-pass">
+                                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                                        </div>
+
+                                        <a class="btn btn-primary btn-large btn-block" onclick="document.forms['register-form'].submit()">register</a>
+                                        <a class="login-link" href="login">Already Registered? Click here to Login. </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="position: fixed; bottom: 0; background: #000; width: 100%">
+        <p style="color: white; font-size:1em; font-weight: 600;">©2016 IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
+    </footer>
+</body>
+
+</html>

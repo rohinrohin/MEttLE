@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Qualitative Modeling - MEttLE</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/migrated.css">
+	<!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+    <script src="go.js"></script>
+    <!-- <link href="../assets/stylesheets/goSamples.css" rel="stylesheet" type="text/css" />  <!-- you don't need to use this -->
+    <!-- this is only for the GoJS Samples framework -->
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+    <script src="Buttons.js"></script>
+	<script src="NodeLabelDraggingTool.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body onload="init()">
+<section id="middlepart">
+	<div class="top-section"><!-- Navigation bar containg calculator,simulator info centre,etc -->
+		<div class="row">
+		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="simultor/index.html" target="_blank"><input id="problem1qualmodel_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="calc.html" target="_blank"><input id="problem1qualmodel_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="info.html" target="_blank"><input id="problem1qualmodel_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="scratch.html" target="_blank"><input  id="problem1qualmodel_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="problem1map.html" target="_blank"><input id="problem1qualmodel_map" type="image" src="map.png" style="width:110px;height:67px;"/></a></div>
+		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1qualmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
+		</div>
+	</div>
+		<div class="register">
+			<div class="container-fluid">
+			<div class="row activity" style="text-align:center">
+			<div class="col-lg-6">
+			<!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
+             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px" height="580px" viewBox="-30 -30 550 550"  xml:space="preserve">
+
+		<polygon id="problem1qualmodel_task1" onclick="openfunc()" points="0,250 0,500 250,500" class="task_map"/>
+		<text x="5" y="450" class="task_text"> Functional Modeling</text>
+
+		<polygon id="problem1qualmodel_create" points="0,0 0,250 250,500 250,250" onclick="openqual()" class="current_subtask_map"/>
+        <text x="60" y="250" class="current_subtask_text">Create a causal map</text>
+		<polygon id="problem1qualmodel_eval" points="250,250 250,500 375,375" onclick="openqualeval()" class="subtask_map"/>
+        <text x="260" y="375" class="subtask_text">Evaluate <tspan x="260" y="395"> its Utility</tspan></text>
+		<polygon id="problem1qualmodel_plan" points="250,500 375,375 500,500" onclick="openqualplan()" class="subtask_map"/>
+        <text x="320" y="470" class="subtask_text">Plan Next steps</text>
+
+
+		<polygon id="problem1qualmodel_task3" points="250,0 250,250 500,500 500,250" onclick="openquant()" class="task_map"/>
+	    <text x="280" y="250" fill="#000000" font-size="18"> Quantitative Modeling </text>
+
+		<polygon id="problem1qualmodel_task4" points="0,0 250,250 250,0" onclick="opencalc()" class="task_map"/>
+		<text x="120" y="80" class="task_text"> Calculation  </text>
+
+		<polygon id="problem1qualmodel_task5"  points="250,0 500,250 500,0" onclick="openeval()" class="task_map"/>
+		<text x="370" y="80" class="task_text">Evaluation </a></text>
+
+		 <text  x="-10" y="220" transform="rotate(-90 -10,220)" class="task_text"> Qualitative Modeling </text>
+		<path id="problem1qualmodel_task2" d="M 0,0 L 0,250 L 250,500 L 500,500 Z" onclick="openqual()" class="current_task_path"/>
+        </svg>
+
+		<div class="testimonialhulk">
+
+        </div>
+	   </div>
+		<div class="col-lg-6">
+		<div class="row">
+		<div class="col-lg-4 task">
+	    Task
+		</div>
+		<div class="col-lg-8 task_text">
+		Qualitative Modeling
+		</div> </div>
+		<div class="row">
+		<div class="col-lg-4 subtask">
+			Sub-Task <br> 1 of 3
+		</div>
+		<div class="col-lg-8 subtask_text">
+		Create the causal map: Focus question - "How is the performance of the car affected by various parameters?"
+		</div>
+		</div>
+		<div class="row activity">
+		<p style="font-size:12pt;"> Draw a causal map showing how the power required by the car is affected by various parameters. Double click on the canvas below to create a new node.</br><br>
+			Use the Simulator to understand the relationships between the various parameters of the car. </p>
+		</div>
+		<div class="row">
+		<div id="problem1qualmodel_myDiagramDiv2" style="background-color: whitesmoke; border: solid 1px black; width: 100%; height: 400px"></div>
+		</div>
+		<div class="row activity" style="font-size:12pt;text-align:center">
+		Save causal map in JSON format:
+		<button id="problem1qualmodel_save" onclick="save()">Save here</button>
+		<button id="problem1qualmodel_load" onclick="load()">Load from here</button> <br>
+		<!-- The save button should save to db and the load button should load from db -->
+		<!-- The text area contains the default json file for the map -->
+		<textarea id="problem1qualmodel_jsonmodel" style="width:100%;height:300px" name="text">{ "nodeKeyProperty": "id",
+				"nodeDataArray": [
+					{ "id": 0, "loc": "120 120", "text": "Power" },
+					{ "id": 1, "loc": "330 120", "text": "Parameter" }
+				],
+				"linkDataArray": [
+					{ "from": 0, "to": 1, "text": "Relationship", "curviness": 20 }
+				]
+				}
+		</textarea>
+		Save causal map in JSON format into a file: <input id="problem1qualmodel_FileNameToSaveAs"></input>
+        <button id="problem1qualmodel_savetofile" onclick="saveTextAsFile()">Save JSON model to file</button> <br> <br>
+        See your saved model <br>
+         <input type="file" id="problem1qualmodel_fileToLoad">
+        <button id="problem1qualmodel_loadsavedfile" onclick="loadFileAsText()">Load Selected File</button> <button id="problem1qualmodel_see">See saved causal map</button><br>
+		<a href="problem1qualeval.html"><button id="problem1qualmodel_check" type="button" class="btn btn-info"> Check if this is a useful model.</button></a>
+				</div>
+				</div>
+				</div>
+				</div>
+			</div>
+			</div>
+</section>
+</body>
+<!-- <footer style="position: relative; bottom: 0; background: #000;">
+	<p>©2016   IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
+</footer>
+ --><!-- jQuery library -->
+<script id="code">
+function init() {
+if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+
+	//causal map
+	myDiagram2 =
+      $(go.Diagram, "problem1qualmodel_myDiagramDiv2",  // must name or refer to the DIV HTML element
+        {
+          // start everything in the middle of the viewport
+          initialContentAlignment: go.Spot.Center,
+          // have mouse wheel events zoom in and out instead of scroll up and down
+          "toolManager.mouseWheelBehavior": go.ToolManager.WheelZoom,
+          // support double-click in background creating a new node
+          "clickCreatingTool.archetypeNodeData": { text: "new node" },
+          // enable undo & redo
+          "undoManager.isEnabled": true
+        });
+    // install the NodeLabelDraggingTool as a "mouse move" tool
+    myDiagram2.toolManager.mouseMoveTools.insertAt(0, new NodeLabelDraggingTool());
+    // when the document is modified, add a "*" to the title and enable the "Save" button
+    myDiagram2.addDiagramListener("Modified", function(e) {
+      var button = document.getElementById("problem1qualmodel_save");
+      if (button) button.disabled = !myDiagram2.isModified;
+      var idx = document.title.indexOf("*");
+      if (myDiagram2.isModified) {
+        if (idx < 0) document.title += "*";
+      } else {
+        if (idx >= 0) document.title = document.title.substr(0, idx);
+      }
+    });
+    // define the Node template
+    myDiagram2.nodeTemplate =
+      $(go.Node, "Spot",
+        { locationObjectName: "ICON", locationSpot: go.Spot.Center },
+        new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+        { selectionObjectName: "ICON" },
+        // define the node primary shape
+        $(go.Shape, "RoundedRectangle",
+          {
+            name: "ICON",
+            parameter1: 10,  // the corner has a medium radius
+            desiredSize: new go.Size(40, 40),
+            fill: $(go.Brush, "Linear", { 0: "rgb(254, 201, 0)", 1: "rgb(254, 162, 0)" }),
+            stroke: "black",
+            portId: "",
+            fromLinkable: true,
+            fromLinkableSelfNode: true,
+            fromLinkableDuplicates: true,
+            toLinkable: true,
+            toLinkableSelfNode: true,
+            toLinkableDuplicates: true,
+            cursor: "pointer"
+          }),
+        $(go.Shape,  // provide interior area where the user can grab the node
+          { fill: "transparent", stroke: null, desiredSize: new go.Size(30, 30) }),
+        $(go.TextBlock,
+          {
+            font: "bold 11pt helvetica, bold arial, sans-serif",
+            editable: true,  // editing the text automatically updates the model data
+            _isNodeLabel: true,
+            cursor: "move"  // visual hint that the user can do something with this node label
+          },
+          new go.Binding("text", "text").makeTwoWay(),
+          // The GraphObject.alignment property is what the NodeLabelDraggingTool modifies.
+          // This TwoWay binding saves any changes to the same named property on the node data.
+          new go.Binding("alignment", "alignment", go.Spot.parse).makeTwoWay(go.Spot.stringify)
+          )
+      );
+    // unlike the normal selection Adornment, this one includes a Button
+    myDiagram2.nodeTemplate.selectionAdornmentTemplate =
+      $(go.Adornment, "Spot",
+        $(go.Panel, "Auto",
+          $(go.Shape, { fill: null, stroke: "blue", strokeWidth: 2 }),
+          $(go.Placeholder)  // this represents the selected Node
+        ),
+        // the button to create a "next" node, at the top-right corner
+        $("Button",
+          {
+            alignment: go.Spot.TopRight,
+            click: addNodeAndLink  // this function is defined below
+          },
+          $(go.Shape, "PlusLine", { desiredSize: new go.Size(6, 6) })
+        ) // end button
+      ); // end Adornment
+    // clicking the button inserts a new node to the right of the selected node,
+    // and adds a link to that new node
+    function addNodeAndLink(e, obj) {
+      var adorn = obj.part;
+      e.handled = true;
+      var diagram = adorn.diagram;
+      diagram.startTransaction("Add State");
+      // get the node data for which the user clicked the button
+      var fromNode = adorn.adornedPart;
+      var fromData = fromNode.data;
+      // create a new "State" data object, positioned off to the right of the adorned Node
+      var toData = { text: "new" };
+      var p = fromNode.location.copy();
+      p.x += 200;
+      toData.loc = go.Point.stringify(p);  // the "loc" property is a string, not a Point object
+      // add the new node data to the model
+      var model = diagram.model;
+      model.addNodeData(toData);
+      // create a link data from the old node data to the new node data
+      var linkdata = {
+        from: model.getKeyForNodeData(fromData),  // or just: fromData.id
+        to: model.getKeyForNodeData(toData),
+        text: "transition"
+      };
+      // and add the link data to the model
+      model.addLinkData(linkdata);
+      // select the new Node
+      var newnode = diagram.findNodeForData(toData);
+      diagram.select(newnode);
+      diagram.commitTransaction("Add State");
+      // if the new node is off-screen, scroll the diagram to show the new node
+      diagram.scrollToRect(newnode.actualBounds);
+    }
+    // replace the default Link template in the linkTemplateMap
+    myDiagram2.linkTemplate =
+      $(go.Link,  // the whole link panel
+        { curve: go.Link.Bezier, adjusting: go.Link.Stretch, reshapable: true },
+        new go.Binding("points").makeTwoWay(),
+        new go.Binding("curviness", "curviness"),
+        $(go.Shape,  // the link shape
+          { strokeWidth: 1.5 }),
+        $(go.Shape,  // the arrowhead
+          { toArrow: "standard", stroke: null }),
+        $(go.Panel, "Auto",
+          $(go.Shape,  // the label background, which becomes transparent around the edges
+            {
+              fill: $(go.Brush, "Radial",
+                      { 0: "rgb(240, 240, 240)", 0.3: "rgb(240, 240, 240)", 1: "rgba(240, 240, 240, 0)" }),
+              stroke: null
+            }),
+          $(go.TextBlock, "transition",  // the label text
+            {
+              textAlign: "center",
+              font: "10pt helvetica, arial, sans-serif",
+              stroke: "black",
+              margin: 4,
+              editable: true  // editing the text automatically updates the model data
+            },
+            new go.Binding("text", "text").makeTwoWay())
+        )
+      );
+
+	// read in the JSON-format data from the "mySavedModel" element
+    load();
+}
+// Show the diagram's model in JSON format
+  function save() {
+    document.getElementById("problem1qualmodel_jsonmodel").value = myDiagram2.model.toJson();
+    myDiagram2.isModified = false;
+  }
+  //loads the model based on the value in the textarea
+  function load() {
+    myDiagram2.model = go.Model.fromJson(document.getElementById("problem1qualmodel_jsonmodel").value);
+  }
+  //To save the contents of the textarea into a file and download it onto the user's device
+  function saveTextAsFile()
+{
+    var textToSave = document.getElementById("problem1qualmodel_jsonmodel").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("problem1qualmodel_FileNameToSaveAs").value;
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+}
+ //removes the anchor tag created by the previous function
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ //loads the file that the user selects into the text area
+function loadFileAsText()
+{
+    var fileToLoad = document.getElementById("problem1qualmodel_fileToLoad").files[0];
+
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent)
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("problem1qualmodel_jsonmodel").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+$('#problem1qualmodel_see').click(function() {
+    createImage();
+});
+//loads the model image based on the file the user selected
+function createImage() {
+    var pastedImage = new Image();
+    pastedImage.onload = function() {
+
+    }
+	myDiagram2.model = go.Model.fromJson(document.getElementById("problem1qualmodel_jsonmodel").value);
+	pastedImage = myDiagram2.makeImage();
+    $(".testimonialhulk").html(pastedImage);
+}
+</script>
+<!-- the functions open a new window with the respective URL on clicking the corresponding divs/buttons-->
+<script>
+function openfunc() {
+    window.open("problem1funcmodel.html", target="_self");
+}
+</script>
+ <script>
+function openqualeval() {
+    window.open("problem1qualeval.html", target="_self");
+}
+</script>
+ <script>
+function openqualplan() {
+    window.open("problem1qualplan.html", target="_self");
+}
+</script>
+<script>
+function openqual() {
+    window.open("problem1qualmodel.html", target="_self");
+}
+</script>
+<script>
+function openquant() {
+    window.open("problem1quantmodel.html", target="_self");
+}
+</script>
+<script>
+function opencalc() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+<script>
+function openeval() {
+    window.open("problem1eval.html", target="_self");
+}
+</script>

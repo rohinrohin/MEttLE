@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+ <title>Evaluation - MEttLE</title>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/migrated.css">
+	<!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+</head>
+
+<section id="middlepart">
+	<div class="top-section"><!-- Navigation bar containg calculator,simulator info centre,etc -->
+	<div class="row">
+		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="simultor/index.html" target="_blank"><input id="problem1mapnotcomplete_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="calc.html" target="_blank"><input id="problem1mapnotcomplete_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="info.html" target="_blank"><input id="problem1mapnotcomplete_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="scratch.html" target="_blank"><input  id="problem1mapnotcomplete_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
+		<a href="problem1map.html" target="_blank"><input id="problem1mapnotcomplete_map" type="image" src="map.png" style="width:110px;height:67px;"/></a>
+		</div>
+		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1mapnotcomplete_logout" type="button" class="btn btn-default">Logout</button></a></div>
+	</div>
+	</div>
+	<div class="register">
+	<div class="info">
+	    <p> Problem Map </p>
+		</div>
+		<div class="container-fluid">
+		<div class="col-lg-12">
+		<div class="row activity">
+		<div class="col-lg-3">
+         <p style="font-size:14px;">  It looks like you did not satisfy the evaluation criteria for a reasonable estimate of power. Go back and check the five tasks that you have done to solve the problem. You may chose to check any task first and in any sequence. </p>
+		</div>
+		<div class="col-lg-6">
+		<!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="560px" height="560px" viewBox="-20 -20 540 540"  xml:space="preserve">
+		<rect width="500" height="500" fill="#ffffff"/>
+
+		<polygon id="problem1mapnotcomplete_func" points="0,250 0,500 250,500" class="task_map" onclick="openfunc()"/>
+		<text id="problem1mapnotcomplete_task1" x="5" y="450" class="task_text"> Functional Modeling</text>
+		<text x="5" y="470"  class="task_text_eg"> e.g. </text>
+        <text x="5" y="490"  class="task_text_eg"> How does an electric car run? </text>
+
+		<polygon id="problem1mapnotcomplete_qual" points="0,0 0,250 250,500 500,500" class="task_map" onclick="openqual()"/>
+		<text id="problem1mapnotcomplete_task2" x="30" y="250" class="task_text"> Qualitative Modeling </text>
+		<text x="100" y="270"  class="task_text_eg"> e.g. </text>
+        <text x="100" y="290"  class="task_text_eg"> How is the performance <tspan x="100" y="310" class="task_text_eg"> of the car affected </tspan> <tspan x="100" y="330" class="task_text_eg"> by various parameters? </tspan> </text>
+
+		<polygon id="problem1mapnotcomplete_quant" points="250,0 250,250 500,500 500,250" class="task_map" onclick="openquant()"/>
+		<text id="problem1mapnotcomplete_task3" x="260" y="240" class="task_text"> Quantitative Modeling </text>
+		<text x="320" y="260" class="task_text_eg"> e.g. </text>
+        <text x="320" y="280"  class="task_text_eg"> What is the equation <tspan x="320" y="300" class="task_text_eg"> connecting power</tspan><tspan x="320" y="320" class="task_text_eg"> with other parameters? </tspan> </text>
+
+		<polygon id="problem1mapnotcomplete_calc" points="0,0 250,250 250,0" class="task_map" onclick="opencalc()"/>
+		<text id="problem1mapnotcomplete_task4" x="100" y="20" class="task_text">  Calculation  </text>
+		<text x="125" y="40" class="task_text_eg"> e.g. </text>
+        <text x="125" y="60" class="task_text_eg"> Substitute <tspan x="125" y="80" class="task_text_eg"> reasonable   </tspan> <tspan x="125" y="100" class="task_text_eg"> values and  </tspan> <tspan x="125" y="120" class="task_text_eg">  calculate power. </tspan> </text>
+        <defs><!-- defines an image as a patter. It is not automatically rendered on the page. Has to be explicitly mentioned.-->
+        <pattern id="imgpattern" x="0.63" y="0.4" width="1" height="1">
+        <image width="90" height="78"
+               xlink:href="C:\Users\Aditi\Documents\Aditi_ET\PhD\TEL system design\TELE v0.1\Motor Problem\motor\Mettle\cross.png"/>
+        </pattern>
+        </defs>
+		<polygon id="problem1mapnotcomplete_eval" points="250,0 500,250 500,0" fill="url(#imgpattern)" stroke="#ccc" stroke-width="2" onclick="openeval()"/> <!-- the polygon has the background mentioned in the pattern-->
+		<text id="problem1mapnotcomplete_task5" x="330" y="20" class="task_text">Evaluation </text>
+		<text x="360" y="40" class="task_text_eg"> e.g. </text>
+        <text x="360" y="60" class="task_text_eg"> Is the determined  <tspan x="360" y="80" class="task_text_eg"> value of power </tspan>  <tspan x="360" y="100" class="task_text_eg">  reasonable? </tspan> </text>
+        </svg>
+ 		</div>
+		</div>
+		</div>
+		</div>
+ </section>
+</body>
+<!-- onclick='document.getElementById("qual_desc").style.visibility = "hidden"' -->
+<!-- <polygon  fill="#6298BC" points="250,0 250,250 500,500 500,250 "/>
+ -->
+<!-- the functions open a new window with the respective URL on clicking the corresponding divs/buttons-->
+<script>
+//to open the html page in a new window when the svg element is clicked
+function openfunc() {
+    window.open("problem1funcmodel.html", target="_self");
+}
+</script>
+<script>
+function openqual() {
+    window.open("problem1qualmodel.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function openquant() {
+    window.open("problem1quantmodel.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function opencalc() {
+    window.open("problem1calc.html", target="_self");
+}
+</script>
+<script>
+//to open the html page in a new window when the svg element is clicked
+function openeval() {
+    window.open("problem1eval.html", target="_self");
+}
+</script>

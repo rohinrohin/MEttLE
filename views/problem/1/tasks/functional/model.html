@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Functional Modeling - MEttLE</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="/stylesheets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="/stylesheets/custom/migrated.css" rel="stylesheet">
+  <script src="/javascripts/vendor/go.js">
+  </script>
+  <script src="/javascripts/vendor/Buttons.js">
+  </script>
+</head>
+
+<body>
+  <section id="middlepart">
+    <div class="top-section">
+      <!-- defines the top-section containg the buttons for calculator,simulator,info center, scribble pad and problem map and logout -->
+      <div class="row">
+        <div class="col-sm-6" style="text-align:center;vertical-align:middle">
+          <p>MEttLE</p>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="simultor/index" target="_blank"><input id="problem1quantmodel_sim" type="image" src="/images/simulator.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="/calculator" target="_blank"><input id="problem1quantmodel_calc" type="image" src="/images/calc.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="/information" target="_blank"><input id="problem1quantmodel_info" type="image" src="/images/info.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="/scratch" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="/images/scribble.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+          <a href="map" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
+        </div>
+        <!-- In the above 12 lines images are being used for the various options and they are made to look like buttons and the anchor tag is added to load the appropriate pages-->
+        <div class="col-sm-1" style="text-align:center"> <a href="logout"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
+      </div>
+    </div>
+    <div class="register">
+      <div class="container-fluid">
+        <div class="row activity" style="text-align:center">
+          <div class="col-lg-6">
+            <svg height="580px" id="Layer_1" version="1.1" viewbox="-30 -30 550 550" width="580px" xmlns="http://www.w3.org/2520/svg">
+              <polygon class="current_subtask_map" id="problem1funcmodel_create" onclick="openfunc()" points="0,250 0,500 125,375"></polygon>
+              <text class="current_subtask_text" x="10" y="375">
+                Create a
+                <tspan x="10" y="395">
+                  statement
+                </tspan>
+              </text>
+              <!-- here tspan is used to change the text position withing the polygon -->
+              <polygon class="subtask_map" id="problem1funcmodel_eval" onclick="openfunceval()" points="0,500 125,375 130,500"></polygon>
+              <text class="subtask_text" x="50" y="470">
+                Evaluate
+                <tspan x="50" y="490">
+                  its Utility
+                </tspan>
+              </text>
+              <polygon class="subtask_map" id="problem1funcmodel_plan" onclick="openfuncplan()" points="125,375 125,500 250,500"></polygon>
+              <text class="subtask_text" x="150" y="450">
+                Plan
+                <tspan x="150" y="470">
+                  Next
+                </tspan>
+                <tspan x="150" y="490">
+                  Steps
+                </tspan>
+              </text>
+              <polygon class="task_map" id="problem1funcmodel_task2" onclick="openqual()" points="0,0 0,250 250,500 500,500"></polygon>
+              <text class="task_text" x="80" y="300">
+                Qualitative Modeling
+              </text>
+              <polygon class="task_map" id="problem1funcmodel_task3" onclick="openquant()" points="250,0 250,250 500,500 500,250"></polygon>
+              <text fill="#000000" font-size="18" x="280" y="250">
+                Quantitative Modeling
+              </text>
+              <polygon class="task_map" id="problem1funcmodel_task4" onclick="opencalc()" points="0,0 250,250 250,0"></polygon>
+              <text class="task_text" x="120" y="80">
+                Calculation
+              </text>
+              <polygon class="task_map" id="problem1funcmodel_task5" onclick="openeval()" points="250,0 500,250 500,0"></polygon>
+              <text class="task_text" x="370" y="80">
+                Evaluation
+              </text>
+              <text class="current_task_text" transform="rotate(-90 -10,500)" x="-10" y="500">
+                Functional Modeling
+              </text>
+              <path class="current_task_path" d="M 0,250 L 0,500 L 250,500 Z" id="problem1funcmodel_task1"></path>
+            </svg>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-4 task">
+                Task
+              </div>
+              <div class="col-lg-8 task_text">
+                Functional Modeling
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 subtask">
+                Sub-Task<br> 1 of 3
+              </div>
+              <div class="col-lg-8 subtask_text">
+                Create the model: Focus question - "How does an electric car run?"
+              </div>
+            </div>
+            <div class="row">
+              <br>
+            </div>
+            <div class="col-lg-12">
+              <div class="row activity">
+                <p style="font-size:12pt;">To make a sentence answering this question, you may drag the <span style="background-color:#759EB8;color:white;">&nbspactions&nbsp;</span>,
+                  <span style="background-color:#759EB8;color:white;">&nbspbehaviours&nbsp;</span>, <span style="background-color:#426793;color:white;">&nbspparts of the system&nbsp;</span>                  and <span style="background-color:#426793;color:white;">&nbspphysical parameters&nbsp;</span> to the canvas
+                  and arrange them into a sentence.</p>
+              </div>
+            </div>
+            <!-- Includes the words that are drag-and-droppable and allows each word to have its own background color to differentaite between actions and parameters -->
+            <div class="col-lg-12 drag-p connectedSortable" id="problem1funcmodel_actions">
+              <span style="background-color:#759EB8;">&nbspruns&nbsp;</span> <span style="background-color:#759EB8;">&nbspdrives&nbsp;</span>              <span style="background-color:#759EB8;">&nbsppushes&nbsp;</span> <span style="background-color:#759EB8;">&nbsppowers&nbsp;</span>              <span style="background-color:#759EB8;">&nbspsupplies&nbsp;</span> <span style="background-color:#759EB8;">&nbspuses&nbsp;</span>              <span style="background-color:#759EB8;">&nbspgenerates&nbsp;</span> <span style="background-color:#759EB8;">&nbsprotates&nbsp;</span>              <span style="background-color:#759EB8;">&nbspmoves&nbsp;</span> <span style="background-color:#759EB8;">&nbsphas&nbsp;</span>              <span style="background-color:#759EB8;">&nbspis&nbsp;</span> <span style="background-color:#759EB8;">&nbspcontains&nbsp;</span>              <span style="background-color:#759EB8;">&nbspregulates&nbsp;</span> <span style="background-color:#426793;">&nbspcar&nbsp;</span>              <span style="background-color:#426793;">&nbspbattery&nbsp;</span> <span style="background-color:#426793;">&nbspmotor&nbsp;</span>              <span style="background-color:#426793;">&nbspcontroller&nbsp;</span> <span style="background-color:#426793;">&nbspgears&nbsp;</span>              <span style="background-color:#426793;">&nbspwheel&nbsp;</span> <span style="background-color:#426793;">&nbsptorque&nbsp;</span>              <span style="background-color:#426793;">&nbsppower&nbsp;</span> <span style="background-color:#426793;">&nbspspeed&nbsp;</span>              <span style="background-color:#426793;">&nbspRPM&nbsp;</span> <span style="background-color:#426793;">&nbspvoltage&nbsp;</span>              <span style="background-color:#426793;">&nbspcurrent&nbsp;</span> <span style="background-color:#426793;">&nbspacceleration&nbsp;</span>
+            </div>
+            <div class="col-lg-12">
+              <p style="font-size:12pt;">Drop the words below to make a sentence.</p>
+            </div>
+            <!-- the space into which the words can be drooped to make a sentence -->
+            <div class="col-lg-12 connectedSortable" id="problem1funcmodel_dropa"></div>
+            <div class="row activity" style="text-align:center; font-size:12pt;">
+              Enter the model statement below and save it
+              <textarea cols="80" id="problem1funcmodel_modeltxt" name="model" rows="3"></textarea><br> File name to save
+              as: <input id="problem1funcmodel_FileNameToSaveAs"> <button onclick="saveTextAsFile()">Save</button><br>
+              <br> See your saved model<br>
+              <input id="problem1funcmodel_fileToLoad" type="file"> <button onclick="loadFileAsText()">Load Selected File</button><br>
+              <a href="problem1funceval.html"><button class="btn btn-info" id="problem1funcmodel_next" type="button">Check if this is a useful model</button></a>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="./js2/jquery-1.12.0.js">
+  </script>
+  <!-- Latest compiled JavaScript -->
+
+  <script src="./js2/bootstrap.min.js">
+  </script>
+  <!-- drag and drop js -->
+
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js">
+  </script>
+  <script>
+    $(function () {
+      $("#problem1funcmodel_actions, #problem1funcmodel_dropa").sortable({
+        connectWith: ".connectedSortable"
+      }).disableSelection();
+    });
+    //makes the elements in the divs problem1funcmodel_actions and problem1funcmodel_dropa draggable(i.e., the words(span elements))and the elements are disabled for selection(cannot select the text in the span elements)
+
+
+    // When the user hovers on <div>, open the popup
+    function myFunction() {
+      document.getElementById("func_desc").style.visibility = "hidden";
+      document.getElementById("func").style.visibility = "visible"
+    }
+
+    // opens the appropraiate html file, when the respective button is clicked, within the same page
+
+    function openfunc() {
+      window.open("./tasks/functional/model", target = "_self");
+    }
+
+    // opens the page when the respective svg is clicked
+    function openfunceval() {
+      window.open("./tasks/functional/evaluate", target = "_self");
+    }
+
+    // opens the page when the respective svg is clicked
+    function openfuncplan() {
+      window.open("./tasks/functional/plan", target = "_self");
+    }
+
+
+    function openqual() {
+      window.open("./tasks/qualititative/model", target = "_self");
+    }
+  // opens the document problem1qualmodel in the same frame when the function is called
+
+    function openquant() {
+      window.open("./tasks/quantitative/model", target = "_self");
+    }
+  // opens the document problem1quantmodel in the same frame when the function is called
+
+    function opencalc() {
+      window.open("./tasks/calculation/calculation", target = "_self");
+    }
+  // opens the document problem1calc in the same frame when the function is called
+
+    function openeval() {
+      window.open("./tasks/evaluation/evaluation", target = "_self");
+    }
+
+    // Save the contents to a text file.
+    function saveTextAsFile() {
+      var textToSave = document.getElementById("problem1funcmodel_modeltxt").value; // value entered in the textbox with id problem1funcmodel_modeltxt i.e the text area containg the model problem statement is stored in the variable textToSave
+      var textToSaveAsBlob = new Blob([textToSave], {
+        type: "text/plain"
+      }); // creates a new blob file(textToSaveAsBlob) whose contents are the contents are the concatenation of the parameters of the constructor(contents of textToSave variable and type:...)
+      var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob); // creates a string which contains a URL representing the textToSaveAsBlob file
+      var fileNameToSaveAs = document.getElementById("problem1funcmodel_FileNameToSaveAs").value; //gets the filename of the file we want to save it as.
+      //here we are creating an anchor element that is clicked and the blob file is downloaded onto the user's device and the link is then removed immediately
+      var downloadLink = document.createElement("a"); //creates an anchor element
+      downloadLink.download = fileNameToSaveAs; // to specify that the file with name stored in fileNameToSaveAs  is to be downloaded
+      downloadLink.innerHTML = "Download File";
+      downloadLink.href = textToSaveAsURL; // the link to the file is specified
+      downloadLink.onclick = destroyClickedElement; // destroyClickedElement is called once the link is clicked
+      downloadLink.style.display = "none"; //link cannot be seen by the user(hidden)
+      document.body.appendChild(downloadLink); // adding the enchor element to the body of the document
+
+      downloadLink.click(); // the link is clicked so download of file will be in progress
+    }
+
+
+    function destroyClickedElement(event) {
+      document.body.removeChild(event.target); // removes the anchor element from the DOM
+    }
+
+    // load text file from user
+    function loadFileAsText() {
+      var fileToLoad = document.getElementById("problem1funcmodel_fileToLoad").files[0]; //gets the file the user chooses and stores it in the variable fileToLoad
+
+      var fileReader = new FileReader(); //creates a filereader object that allows us to read contents of a file
+      fileReader.onload = function (fileLoadedEvent) // function which is called when a file to read is selected
+      {
+        var textFromFileLoaded = fileLoadedEvent.target.result; // the contents of the file to be read is stored in the variable
+        document.getElementById("problem1funcmodel_modeltxt").value = textFromFileLoaded; // the contents of the file are displayed in the div problem1funcmodel_modeltxt
+      };
+      fileReader.readAsText(fileToLoad, "UTF-8"); //specifies the file to read(fileToLoad) and the character set to read
+    }
+  </script>
+</body>
+
+</html>
