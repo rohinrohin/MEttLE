@@ -1,120 +1,135 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Qualitative Modeling - MEttLE</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-	<link rel="stylesheet" href="/stylesheets/migrated.css">
-	<!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
-	<script src="go.js"></script>
+  <title>Qualitative Modeling - MEttLE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/migrated.css">
+  <!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+  <script src="go.js"></script>
   <!-- <link href="../assets/stylesheets/goSamples.css" rel="stylesheet" type="text/css" />  <!-- you don't need to use this -->
-	<!-- this is only for the GoJS Samples framework -->
-<!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
-<script src="Buttons.js"></script>
+  <!-- this is only for the GoJS Samples framework -->
+  <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+  <script src="Buttons.js"></script>
 </head>
 
 <section id="middlepart">
-	<div class="top-section"><!-- Navigation bar containg calculator,simulator info centre,etc -->
-		<div class="row">
-		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="simultor/index.html" target="_blank"><input id="problem1qualeval_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="calc.html" target="_blank"><input id="problem1qualeval_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="info.html" target="_blank"><input id="problem1qualeval_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="scratch.html" target="_blank"><input  id="problem1qualeval_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="problem1map.html" target="_blank"><input id="problem1qualeval_map" type="image" src="map.png" style="width:110px;height:67px;"/></a></div>
-		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1qualeval_logout" type="button" class="btn btn-default">Logout</button></a></div>
+  <div class="top-section">
+    <!-- defines the top-section containg the buttons for calculator,simulator,info center, scribble pad and problem map and logout -->
+    <div class="row">
+      <div class="col-sm-6" style="text-align:center;vertical-align:middle">
+        <p>MEttLE</p>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="simulator" target="_blank"><input id="problem1quantmodel_sim" type="image" src="/images/simulator.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="/calculator" target="_blank"><input id="problem1quantmodel_calc" type="image" src="/images/calc.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="/information" target="_blank"><input id="problem1quantmodel_info" type="image" src="/images/info.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="/scratch" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="/images/scribble.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a onclick="openmap();" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <!-- In the above 12 lines images are being used for the various options and they are made to look like buttons and the anchor tag is added to load the appropriate pages-->
+      <div class="col-sm-1" style="text-align:center"> <a href="logout"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
+    </div>
+  </div>
+  <div class="register">
+    <div class="container-fluid">
+      <div class="row activity" style="text-align:center">
+        <div class="col-lg-6">
+          <!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px"
+            height="580px" viewBox="-30 -30 550 550" xml:space="preserve">
 
-		</div>
-	</div>
-	<div class="register">
-		<div class="container-fluid">
-		<div class="row activity" style="text-align:center">
-			<div class="col-lg-6">
-			<!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
-       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px" height="580px" viewBox="-30 -30 550 550"  xml:space="preserve">
+            <polygon id="problem1qualeval_task1" onclick="openfunc()" points="0,250 0,500 250,500" class="task_map" />
+            <text x="5" y="450" class="task_text"> Functional Modeling</text>
 
-		<polygon id="problem1qualeval_task1" onclick="openfunc()" points="0,250 0,500 250,500" class="task_map"/>
-		<text x="5" y="450" class="task_text"> Functional Modeling</text>
+            <polygon id="problem1qualeval_create" points="0,0 0,250 250,500 250,250" onclick="openqual()" class="subtask_map" />
+            <text x="60" y="250" class="subtask_text">Create a causal map</text>
+            <polygon id="problem1qualeval_eval" points="250,250 250,500 375,375" onclick="openqualeval()" class="current_subtask_map"
+            />
+            <text x="260" y="375" class="current_subtask_text">Evaluate
+              <tspan x="260" y="395"> its Utility</tspan>
+            </text>
+            <polygon id="problem1qualeval_plan" points="250,500 375,375 500,500" onclick="openqualplan()" class="subtask_map" />
+            <text x="320" y="470" class="subtask_text">Plan Next steps</text>
 
-		<polygon id="problem1qualeval_create" points="0,0 0,250 250,500 250,250" onclick="openqual()" class="subtask_map"/>
-        <text x="60" y="250" class="subtask_text">Create a causal map</text>
-		<polygon id="problem1qualeval_eval" points="250,250 250,500 375,375" onclick="openqualeval()" class="current_subtask_map"/>
-        <text x="260" y="375" class="current_subtask_text">Evaluate <tspan x="260" y="395"> its Utility</tspan></text>
-		<polygon id="problem1qualeval_plan" points="250,500 375,375 500,500" onclick="openqualplan()" class="subtask_map"/>
-        <text x="320" y="470" class="subtask_text">Plan Next steps</text>
+            <polygon id="problem1qualeval_task3" points="250,0 250,250 500,500 500,250" onclick="openquant()" class="task_map" />
+            <text x="280" y="250" fill="#000000" font-size="18"> Quantitative Modeling </text>
 
-		<polygon id="problem1qualeval_task3" points="250,0 250,250 500,500 500,250" onclick="openquant()" class="task_map"/>
-	    <text x="280" y="250" fill="#000000" font-size="18"> Quantitative Modeling </text>
+            <polygon id="problem1qualeval_task4" points="0,0 250,250 250,0" onclick="opencalc()" class="task_map" />
+            <text x="120" y="80" class="task_text"> Calculation </text>
 
-		<polygon id="problem1qualeval_task4" points="0,0 250,250 250,0" onclick="opencalc()" class="task_map"/>
-		<text x="120" y="80" class="task_text"> Calculation  </text>
+            <polygon id="problem1qualeval_task5" points="250,0 500,250 500,0" onclick="openeval()" class="task_map" />
+            <text x="370" y="80" class="task_text">Evaluation </a>
+            </text>
 
-		<polygon id="problem1qualeval_task5"  points="250,0 500,250 500,0" onclick="openeval()" class="task_map"/>
-		<text x="370" y="80" class="task_text">Evaluation </a></text>
+            <text x="-10" y="220" transform="rotate(-90 -10,220)" class="task_text"> Qualitative Modeling </text>
+            <path id="problem1qualeval_task2" d="M 0,0 L 0,250 L 250,500 L 500,500 Z" onclick="openqual()" class="current_task_path"
+            />
+          </svg>
 
-		 <text  x="-10" y="220" transform="rotate(-90 -10,220)" class="task_text"> Qualitative Modeling </text>
-		<path id="problem1qualeval_task2" d="M 0,0 L 0,250 L 250,500 L 500,500 Z" onclick="openqual()" class="current_task_path"/>
-        </svg>
-
-	   </div>
-			<div class="col-lg-6">
-			<div class="row">
-		<div class="col-lg-4 task">
-	    Task
-		</div>
-		<div class="col-lg-8 task_text">
-		Qualitative Modeling
-		</div> </div>
-		<div class="row">
-		<div class="col-lg-4 subtask">
-			Sub-Task <br> 2 of 3
-		</div>
-		<div class="col-lg-8 subtask_text">
-		Evaluate the utility of the map: Focus question - "Does your causal map describe how power is related to other parameters of the system?"
-		</div>
-		</div>
-			<div class="row activity" style="text-align:center">
-			<div class="col-lg-6">
-			<button id="problem1qualeval_yes" type="button" class="btn btn-primary" onclick='document.getElementById("problem1qualeval_2").style.visibility = "visible"'> Yes</button></div>
-			<div class="col-lg-6">
-			<div class="popup" id="problem1qualeval_nopopup" onclick="myFunction()">
-			<span class="popuptext" id="myPopup">Go back and edit the model.</span>
-			<button id="problem1qualeval_no" type="button" class="btn btn-danger">No</button>
-			</div>
-			</div>
-			</div>
-			<div id="problem1qualeval_2" class="row activity" style="visibility:hidden">
-			<p style="font-size:12pt;"> Justify your response <a id="problem1qualeval_justify" href="https://goo.gl/forms/SxX3XGYZaK6wVKqR2" target="_blank"> <span style="font-weight:bold;"> here </span> </a>: "How is power qualitatively related to the other parameters of the system?" </p>
-		<div class="row" style="text-align:center" id="problem1qualeval_hint" onclick='document.getElementById("problem1qualeval_hintans").style.visibility = "visible"'><input type="image" src="hintwndctive.png" style="width:120px;height:70px;"/>
-		</div>
-		</div>
-		<div id="problem1qualeval_hintans" class="row activity" style="visibility:hidden;font-size:12pt;text-align:center">
-		<p>  Go back to the <a href="problem1qualmodel.html" target="_blank"> <span style="font-weight:bold;">qualitative modeling task </span> </a> and look at the causal map you created again. </p>
-		</div>
-		<div class="row activity">
-		<a href="problem1qualplan.html"><button id="problem1qualeval_next" type="button" class="btn btn-info"> Plan your next steps </button></a>
-		</div>
-			</div>
-		</div>
-	</div>
-	</div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-4 task">
+              Task
+            </div>
+            <div class="col-lg-8 task_text">
+              Qualitative Modeling
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 subtask">
+              Sub-Task <br> 2 of 3
+            </div>
+            <div class="col-lg-8 subtask_text">
+              Evaluate the utility of the map: Focus question - "Does your causal map describe how power is related to other parameters
+              of the system?"
+            </div>
+          </div>
+          <div class="row activity" style="text-align:center">
+            <div class="col-lg-6">
+              <button id="problem1qualeval_yes" type="button" class="btn btn-primary" onclick='document.getElementById("problem1qualeval_2").style.visibility = "visible"'> Yes</button></div>
+            <div class="col-lg-6">
+              <div class="popup" id="problem1qualeval_nopopup" onclick="myFunction()">
+                <span class="popuptext" id="myPopup">Go back and edit the model.</span>
+                <button id="problem1qualeval_no" type="button" class="btn btn-danger">No</button>
+              </div>
+            </div>
+          </div>
+          <div id="problem1qualeval_2" class="row activity" style="visibility:hidden">
+            <p style="font-size:12pt;"> Justify your response <a id="problem1qualeval_justify" href="https://goo.gl/forms/SxX3XGYZaK6wVKqR2" target="_blank"> <span style="font-weight:bold;"> here </span> </a>:
+              "How is power qualitatively related to the other parameters of the system?" </p>
+            <div class="row" style="text-align:center" id="problem1qualeval_hint" onclick='document.getElementById("problem1qualeval_hintans").style.visibility = "visible"'><input type="image" src="hintwndctive.png" style="width:120px;height:70px;" />
+            </div>
+          </div>
+          <div id="problem1qualeval_hintans" class="row activity" style="visibility:hidden;font-size:12pt;text-align:center">
+            <p> Go back to the <a href="problem1qualmodel.html" target="_blank"> <span style="font-weight:bold;">qualitative modeling task </span> </a>              and look at the causal map you created again. </p>
+          </div>
+          <div class="row activity">
+            <a href="problem1qualplan.html"><button id="problem1qualeval_next" type="button" class="btn btn-info"> Plan your next steps </button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 </body>
 <!-- <footer style="position: relative; bottom: 0; background: #000;">
 	<p>©2016   IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
 </footer>
- --><!-- jQuery library -->
+ -->
+<!-- jQuery library -->
 <script src="./js2/jquery-1.12.0.js"></script>
 
 <!-- Latest compiled JavaScript -->
@@ -124,54 +139,58 @@
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
 <script>
-// When the user clicks on div, open the popup
-function myFunction() {
+  // When the user clicks on div, open the popup
+  function myFunction() {
     var popup = document.getElementById('myPopup');
-    popup.classList.toggle('show');//class attribute of the div is changed to 'show'
-	document.getElementById("problem1qualeval_create").style.fill = "#F3CA40";//the background-color of the polygon is changed
-}
+    popup.classList.toggle('show'); //class attribute of the div is changed to 'show'
+    document.getElementById("problem1qualeval_create").style.fill = "#F3CA40"; //the background-color of the polygon is changed
+  }
 </script>
 
 <script>
-function hidedetils(){
-document.getElementById("qual_desc").style.visibility = "hidden"
-document.getElementById("qual_desc_hint").style.visibility = "hidden";
-}
-</script>
-<!-- the functions open a new window with the respective URL on clicking the corresponding divs/buttons-->
-<script>
-function openfunc() {
-    window.open("problem1funcmodel.html", target="_self");
-}
-</script>
- <script>
-function openqualeval() {
-    window.open("problem1qualeval.html", target="_self");
-}
-</script>
- <script>
-function openqualplan() {
-    window.open("problem1qualplan.html", target="_self");
-}
-</script>
-<script>
-function openqual() {
-    window.open("problem1qualmodel.html", target="_self");
-}
-</script>
-<script>
-function openquant() {
-    window.open("problem1quantmodel.html", target="_self");
-}
-</script>
-<script>
-function opencalc() {
-    window.open("problem1calc.html", target="_self");
-}
-</script>
-<script>
-function openeval() {
-    window.open("problem1eval.html", target="_self");
-}
+  function hidedetils() {
+    document.getElementById("qual_desc").style.visibility = "hidden"
+    document.getElementById("qual_desc_hint").style.visibility = "hidden";
+  }
 </script>
 
+<script>
+  //to open the html page in a new window when the svg element is clicked
+  function openfunc() {
+    window.open("/problem/1/tasks/functional/model", target = "_self");
+  }
+
+  // opens the page when the respective svg is clicked
+  function openfunceval() {
+    window.open("/problem/1/tasks/functional/evaluate", target = "_self");
+  }
+
+  // opens the page when the respective svg is clicked
+  function openfuncplan() {
+    window.open("/problem/1/tasks/functional/plan", target = "_self");
+  }
+
+
+  function openqual() {
+    window.open("/problem/1/tasks/qualititative/model", target = "_self");
+  }
+  // opens the document problem1qualmodel in the same frame when the function is called
+
+  function openquant() {
+    window.open("/problem/1/tasks/quantitative/model", target = "_self");
+  }
+  // opens the document problem1quantmodel in the same frame when the function is called
+
+  function opencalc() {
+    window.open("/problem/1/tasks/calculation/calculation", target = "_self");
+  }
+  // opens the document problem1calc in the same frame when the function is called
+
+  function openeval() {
+    window.open("/problem/1/tasks/evaluation/evaluation", target = "_self");
+  }
+
+  function openmap() {
+    window.open("/problem/1/map", target = "_self");
+  }
+</script>

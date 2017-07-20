@@ -17,46 +17,6 @@
   <script src="/javascripts/vendor/jquery-ui.js"></script>
 </head>
 
-<script>
-  function myFunction() {
-    var popup = document.getElementById('myPopup');
-    popup.classList.toggle('show');//changes the class of the div to show
-    document.getElementById("problem1funcplan_map").src = "mapactive.png"//changes the src of image
-  }
-
-  function hidedetils() {
-    document.getElementById("func_desc").style.visibility = "hidden"
-  }
-
-  function openfunc() {
-    window.open("problem1funcmodel.html", target = "_self");
-  }
-
-  function openfunceval() {
-    window.open("problem1funceval.html", target = "_self");
-  }
-
-  function openfuncplan() {
-    window.open("problem1funcplan.html", target = "_self");
-  }
-
-  function openqual() {
-    window.open("problem1qualmodel.html", target = "_self");
-  }
-
-  function openquant() {
-    window.open("problem1quantmodel.html", target = "_self");
-  }
-
-  function opencalc() {
-    window.open("problem1calc.html", target = "_self");
-  }
-
-  function openeval() {
-    window.open("problem1eval.html", target = "_self");
-  }
-</script>
-
 <body>
   <section id="middlepart">
     <div class="top-section">
@@ -78,7 +38,7 @@
           <a href="/scratch" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="/images/scribble.png" style="width:110px;height:67px;"/></a>
         </div>
         <div class="col-sm-1" style="text-align:center;vertical-align:middle">
-          <a href="map" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
+          <a onclick="openmap();" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
         </div>
         <!-- In the above 12 lines images are being used for the various options and they are made to look like buttons and the anchor tag is added to load the appropriate pages-->
         <div class="col-sm-1" style="text-align:center"> <a href="logout"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
@@ -147,11 +107,61 @@
                 </br> You may want to look at the <a id="problem1funcplan_hint" href="problem1map.html" target="_blank"><span style="font-weight:bold;">problem map.</span></a>                </p>
             </div>
             <div class="row activity">
-              <p style="font-size:12pt;"> <a href="problem1map.html"><button id="problem1funcplan_next" type="button" class="btn btn-info"> Choose the next task you want to do. </button></a>                </p>
+              <button onclick="openmap();" id="problem1funcplan_next" type="button" class="btn btn-info"> Choose the next task you want to do. </button>              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <script>
+    function myFunction() {
+      var popup = document.getElementById('myPopup');
+      popup.classList.toggle('show'); //changes the class of the div to show
+      document.getElementById("problem1funcplan_map").src = "mapactive.png" //changes the src of image
+    }
+
+    function hidedetils() {
+      document.getElementById("func_desc").style.visibility = "hidden"
+    }
+
+    function openfunc() {
+      window.open("/problem/1/tasks/functional/model", target = "_self");
+    }
+
+    // opens the page when the respective svg is clicked
+    function openfunceval() {
+      window.open("/problem/1/tasks/functional/evaluate", target = "_self");
+    }
+
+    // opens the page when the respective svg is clicked
+    function openfuncplan() {
+      window.open("/problem/1/tasks/functional/plan", target = "_self");
+    }
+
+
+    function openqual() {
+      window.open("/problem/1/tasks/qualititative/model", target = "_self");
+    }
+    // opens the document problem1qualmodel in the same frame when the function is called
+
+    function openquant() {
+      window.open("/problem/1/tasks/quantitative/model", target = "_self");
+    }
+    // opens the document problem1quantmodel in the same frame when the function is called
+
+    function opencalc() {
+      window.open("/problem/1/tasks/calculation/calculation", target = "_self");
+    }
+    // opens the document problem1calc in the same frame when the function is called
+
+    function openeval() {
+      window.open("/problem/1/tasks/evaluation/evaluation", target = "_self");
+    }
+
+    function openmap() {
+      window.open("/problem/1/map", target = "_self");
+    }
+  </script>
+
 </body>
