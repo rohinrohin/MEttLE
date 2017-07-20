@@ -1,198 +1,254 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Functional Modeling - MEttLE</title>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-	<link rel="stylesheet" href="/stylesheets/migrated.css">
-	<!-- <link rel="stylesheet" href="/stylesheets/introjs.css"> -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
-    <script src="go.js"></script>
-  <!-- <link href="../assets/stylesheets/goSamples.css" rel="stylesheet" type="text/css" />  <!-- you don't need to use this -->
-    <!-- this is only for the GoJS Samples framework -->
-<!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
-<script src="Buttons.js"></script>
+  <title>Functional Modeling - MEttLE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/custom/migrated.css">
+  <script src="/javascripts/vendor/go.js"></script>
+  <script src="/javascripts/vendor/Buttons.js"></script>
+
+  <script src="/javascripts/vendor/jquery-1.12.0.js"></script>
+  <script src="/javascripts/vendor/bootstrap.min.js"></script>
+  <script src="/javascripts/vendor/jquery-ui.js"></script>
+
+  <link href="/stylesheets/vendor/bootstrap-editable.css" rel="stylesheet" />
+  <script src="/javascripts/vendor/bootstrap-editable.min.js"></script>
+
+  <link href="/stylesheets/custom/editable-custom.css" rel="stylesheet">
+
+  <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/stylesheets/custom/editable-custom.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script> -->
 </head>
 
 <section id="middlepart">
-	<div class="top-section"><!-- Navigation bar containg calculator,simulator info centre,etc --><!-- Navigation bar containg calculator,simulator info centre,etc -->
-		<div class="row">
-		<div class="col-sm-6" style="text-align:center;vertical-align:middle"> <p>MEttLE</p> </div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="simultor/index.html" target="_blank"><input id="problem1funceval_sim" type="image" src="simulator.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="calc.html" target="_blank"><input id="problem1funceval_calc" type="image" src="calc.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="info.html" target="_blank"><input id="problem1funceval_info" type="image" src="info.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="scratch.html" target="_blank"><input  id="problem1funceval_scribble"type="image" src="scribble.png" style="width:110px;height:67px;"/></a>
-		</div>
-		<div class="col-sm-1" style="text-align:center;vertical-align:middle">
-		<a href="problem1map.html" target="_blank"><input id="problem1funceval_map" type="image" src="map.png" style="width:110px;height:67px;"/></a></div>
-		<div class="col-sm-1" style="text-align:center"> <a href="logout.html"><button id="problem1funcmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
-		</div>
-	</div>
-	<div class="register">
-		<div class="container-fluid">
-		<div class="row activity" style="text-align:center">
-			<div class="col-lg-6">
-			<!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
-          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px" height="580px" viewBox="-30 -30 550 550"  xml:space="preserve">
+  <div class="top-section">
+    <!-- defines the top-section containg the buttons for calculator,simulator,info center, scribble pad and problem map and logout -->
+    <div class="row">
+      <div class="col-sm-6" style="text-align:center;vertical-align:middle">
+        <p>MEttLE</p>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="simultor/index" target="_blank"><input id="problem1quantmodel_sim" type="image" src="/images/simulator.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="/calculator" target="_blank"><input id="problem1quantmodel_calc" type="image" src="/images/calc.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="/information" target="_blank"><input id="problem1quantmodel_info" type="image" src="/images/info.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a href="/scratch" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="/images/scribble.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <div class="col-sm-1" style="text-align:center;vertical-align:middle">
+        <a onclick="openmap();" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
+      </div>
+      <!-- In the above 12 lines images are being used for the various options and they are made to look like buttons and the anchor tag is added to load the appropriate pages-->
+      <div class="col-sm-1" style="text-align:center"> <a href="logout"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
+    </div>
+  </div>
+  <div class="register">
+    <div class="container-fluid">
+      <div class="row activity" style="text-align:center">
+        <div class="col-lg-6">
+          <!-- To draw the box containing the various tasks and to navigate to any sub-task by clicking on it -->
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2520/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580px"
+            height="580px" viewBox="-30 -30 550 550" xml:space="preserve">
 
-		<polygon id="problem1funceval_create" points="0,250 0,500 125,375" onclick="openfunc()" class="subtask_map"/>
-        <text x="10" y="375" class="subtask_text">Create a <tspan x="10" y="395"> statement </tspan> </text>
-		<polygon id="problem1funceval_eval" points="0,500 125,375 130,500" onclick="openfunceval()" class="current_subtask_map"/>
-        <text x="50" y="470" class="current_subtask_text">Evaluate <tspan x="50" y="490"> its Utility </tspan></text>
-		<polygon id="problem1funceval_plan" points="125,375 125,500 250,500" onclick="openfuncplan()" class="subtask_map"/>
-        <text x="150" y="450" class="subtask_text">Plan <tspan x="150" y="470"> Next </tspan><tspan x="150" y="490"> Steps</tspan> </text>
+            <polygon id="problem1funceval_create" points="0,250 0,500 125,375" onclick="openfunc()" class="subtask_map" />
+            <text x="10" y="375" class="subtask_text">Create a
+              <tspan x="10" y="395"> statement </tspan>
+            </text>
+            <polygon id="problem1funceval_eval" points="0,500 125,375 130,500" onclick="openfunceval()" class="current_subtask_map" />
+            <text x="50" y="470" class="current_subtask_text">Evaluate
+              <tspan x="50" y="490"> its Utility </tspan>
+            </text>
+            <polygon id="problem1funceval_plan" points="125,375 125,500 250,500" onclick="openfuncplan()" class="subtask_map" />
+            <text x="150" y="450" class="subtask_text">Plan
+              <tspan x="150" y="470"> Next </tspan>
+              <tspan x="150" y="490"> Steps</tspan>
+            </text>
 
 
-		<polygon id="problem1funceval_task2" points="0,0 0,250 250,500 500,500" onclick="openqual()" class="task_map"/>
-		<text x="80" y="300" class="task_text"> Qualitative Modeling </text>
+            <polygon id="problem1funceval_task2" points="0,0 0,250 250,500 500,500" onclick="openqual()" class="task_map" />
+            <text x="80" y="300" class="task_text"> Qualitative Modeling </text>
 
-		<polygon id="problem1funceval_task3" points="250,0 250,250 500,500 500,250" onclick="openquant()" class="task_map"/>
-	    <text x="280" y="250" fill="#000000" font-size="18"> Quantitative Modeling </text>
+            <polygon id="problem1funceval_task3" points="250,0 250,250 500,500 500,250" onclick="openquant()" class="task_map" />
+            <text x="280" y="250" fill="#000000" font-size="18"> Quantitative Modeling </text>
 
-		<polygon id="problem1funceval_task4" points="0,0 250,250 250,0" onclick="opencalc()" class="task_map"/>
-		<text x="120" y="80" class="task_text"> Calculation  </text>
+            <polygon id="problem1funceval_task4" points="0,0 250,250 250,0" onclick="opencalc()" class="task_map" />
+            <text x="120" y="80" class="task_text"> Calculation </text>
 
-		<polygon id="problem1funceval_task5"  points="250,0 500,250 500,0" onclick="openeval()" class="task_map"/>
-		<text x="370" y="80" class="task_text">Evaluation </a></text>
+            <polygon id="problem1funceval_task5" points="250,0 500,250 500,0" onclick="openeval()" class="task_map" />
+            <text x="370" y="80" class="task_text">Evaluation </a>
+            </text>
 
-		<text  x="-10" y="500" class="current_task_text" transform="rotate(-90 -10,500)"> Functional Modeling </text>
-		<path id="problem1funceval_task3" d="M 0,250 L 0,500 L 250,500 Z" class="current_task_path"/>
-        </svg>
-		</div>
-		<div class="col-lg-6">
-		<div class="row">
-		<div class="col-lg-4 task">
-	    Task
-		</div>
-		<div class="col-lg-8 task_text">
-		Functional Modeling
-		</div> </div>
-		<div class="row">
-		<div class="col-lg-4 subtask">
-			Sub-Task <br> 2 of 3 <br> &nbsp
-		</div>
-		<div class="col-lg-8 subtask_text">
-		Evaluate the utility of the functional model: Focus question - "Does the statement describe how power is generated and used in this system?"
-		</div>
-		</div>
-			<div class="row activity" style="text-align:center">
-				<div class="col-lg-6">
-					<button id="problem1funceval_yes" type="button" class="btn btn-primary" onclick='document.getElementById("problem1funceval_2").style.visibility = "visible"'> Yes </button></div>
-					<!-- on clicking the button the div becomes visible -->
-					<div class="col-lg-6">
-					<div class="popup" id="problem1funceval_no" onclick="myFunction()"><!-- on clicking the div the function is called(the popup becomes visible)-->
-                     <span class="popuptext" id="myPopup">Go back and edit the model.</span>
-					<button id="problem1funceval_no" type="button" class="btn btn-danger"> No</button>
-					</div>
-				     </div>
-			    </div>
-	    <div id="problem1funceval_2" class="row activity" style="visibility:hidden">
-			<p style="font-size:12pt;">  Justify your response <a id="problem1funceval_justify" href="https://goo.gl/forms/3uCN6vl9A7slKldK2" target="_blank"> <span style="font-weight:bold;"> here </span> </a>: "What is the source and user of power according to your model?" </p>
-		<div class="row" style="text-align:center" id="problem1funceval_hint" onclick='document.getElementById("problem1funceval_hintans").style.visibility = "visible"'><input type="image" src="hintwndctive.png" style="width:120px;height:70px;"/><!-- on clicking the div the hintans div becomes visible -->
-		</div>
-		</div>
-		<div id="problem1funceval_hintans" class="row activity" style="visibility:hidden;font-size:12pt;text-align:center">
-		<!-- <p style="font-size:12pt;"> Look at the <a id="problem1funceval_look" href="https://goo.gl/forms/2S7sgmPwBISOcTzT2"> <span style="font-weight:bold;"> model </span> </a> you created again. </p> -->
-		See your saved model <br>
-		<textarea id="problem1funceval_modeltxt" name="model" rows="3" cols="80"></textarea></br>
-        <input type="file" id="problem1funceval_fileToLoad">
-        <button onclick="loadFileAsText()">Load Selected File</button> <br>
-		</div>
-		<div class="row activity">
-		<a href="problem1funcplan.html"><button id="problem1funceval_next" type="button" class="btn btn-info"> Plan your next steps </button></a>
-		</div>
-		</div>
-		</div>
-	    </div>
-	</div>
-</div>
+            <text x="-10" y="500" class="current_task_text" transform="rotate(-90 -10,500)"> Functional Modeling </text>
+            <path id="problem1funceval_task3" d="M 0,250 L 0,500 L 250,500 Z" class="current_task_path" />
+          </svg>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-4 task">
+              Task
+            </div>
+            <div class="col-lg-8 task_text">
+              Functional Modeling
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 subtask">
+              Sub-Task <br> 2 of 3 <br> &nbsp
+            </div>
+            <div class="col-lg-8 subtask_text">
+              Evaluate the utility of the functional model: Focus question - "Does the statement describe how power is generated and used
+              in this system?"
+            </div>
+          </div>
+          <div class="row activity" style="text-align:center">
+            <div class="col-lg-6">
+              <button id="problem1funceval_yes" type="button" class="btn btn-primary" onclick='document.getElementById("problem1funceval_2").style.visibility = "visible"'> Yes </button></div>
+            <!-- on clicking the button the div becomes visible -->
+            <div class="col-lg-6">
+              <div class="popup" id="problem1funceval_no" onclick="myFunction()">
+                <!-- on clicking the div the function is called(the popup becomes visible)-->
+                <span class="popuptext" id="myPopup">Go back and edit the model.</span>
+                <button id="problem1funceval_no" type="button" class="btn btn-danger"> No</button>
+              </div>
+            </div>
+          </div>
+          <div id="problem1funceval_2" class="row activity" style="visibility:hidden">
+            <div class="problem-wrapper">
+              <!-- <a id="problem1funceval_justify" href="https://goo.gl/forms/3uCN6vl9A7slKldK2" target="_blank"> <span style="font-weight:bold;"> here </span> </a>: -->
+              <div style="margin: 18px 35px; font-size:1.2em!important;">
+                <div class="question-wrap" style="margin-top:13px;">
+                  <div class="question" style="font-size:1.2em!important;margin-bottom:0">1. Justify your response; "What is the source and user of power according to your model?"</div>
+                  <div class="answer" style="margin: 5px 35px; font-size:1.2em!important;">
+                    <a class="text-area-editable" style="padding-left: 10px;padding-right: 10px;" id="problem0" data-type="textarea">{{answerData.[0]}}</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="text-align:center" id="problem1funceval_hint" onclick='document.getElementById("problem1funceval_hintans").style.visibility = "visible"'><input type="image" src="/images/hintwndctive.png" style="width:120px;height:70px;" />
+              </div>
+            </div>
+
+            <!-- on clicking the div the hintans div becomes visible -->
+          </div>
+        </div>
+        <div id="problem1funceval_hintans" class="row activity" style="visibility:hidden;font-size:12pt;text-align:center">
+          <!-- <p style="font-size:12pt;"> Look at the <a id="problem1funceval_look" href="https://goo.gl/forms/2S7sgmPwBISOcTzT2"> <span style="font-weight:bold;"> model </span> </a> you created again. </p> -->
+          See your saved model <br>
+          <textarea id="problem1funceval_modeltxt" name="model" rows="3" cols="80"></textarea></br>
+          <input type="file" id="problem1funceval_fileToLoad">
+          <button onclick="loadFileAsText()">Load Selected File</button> <br>
+        </div>
+        <div class="row activity">
+          <button onclick="openfuncplan();" id="problem1funceval_next" type="button" class="btn btn-info"> Plan your next steps </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
 </section>
 </body>
-<!-- <footer style="position: relative; bottom: 0; background: #000;">
-	<p>©2016   IDP in Educational Technology, Indian Institute of Technology Bombay, India</p>
-</footer>
- --><!-- jQuery library -->
-<script src="./js2/jquery-1.12.0.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="./js2/bootstrap.min.js"></script>
 <script>
-// When the user clicks on div, open the popup
-function myFunction() {
-    var popup = document.getElementById('myPopup');
-    popup.classList.toggle('show');// cahnges the class of the div to show
-	document.getElementById("problem1funceval_create").style.fill = "#F3CA40";//changes the background color of the polygon
-}
+  $(document).ready(function () {
+    $.fn.editable.defaults.mode = 'inline';
+    $('#problem0').editable({
+      inputClass: 'text-area-css',
+      name: 'generic',
+      type: 'text',
+      pk: 0,
+      url: '/api/problem/answer',
+      title: 'Enter username',
+      showbuttons: 'bottom',
+      rows: '5',
+      emptytext: 'click here to justify',
+      params: {
+        pageID: window.location.pathname,
+      },
+      success: function (response, newValue) {
+        response = JSON.parse(response);
+        console.log("editable: " + response.status);
+        if (response.status == 'error') {
+          return response.message;
+        } else if (response.status == 'redirect') {
+          console.log('here');
+          window.location.replace('/');
+        }
+      },
+    });
+  });
 </script>
 
+
 <script>
-function hidedetils(){
-document.getElementById("func_desc").style.visibility = "hidden"
-document.getElementById("func_desc_hint").style.visibility = "hidden";
-}
-function loadFileAsText()
-{ // Loads the file specified and displays it in the div problem1funceval_modeltxt
+  // When the user clicks on div, open the popup
+  function myFunction() {
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle('show'); // cahnges the class of the div to show
+    document.getElementById("problem1funceval_create").style.fill = "#F3CA40"; //changes the background color of the polygon
+  }
+
+  function hidedetils() {
+    document.getElementById("func_desc").style.visibility = "hidden"
+    document.getElementById("func_desc_hint").style.visibility = "hidden";
+  }
+
+  function loadFileAsText() { // Loads the file specified and displays it in the div problem1funceval_modeltxt
     var fileToLoad = document.getElementById("problem1funceval_fileToLoad").files[0];
 
     var fileReader = new FileReader();
-    fileReader.onload = function(fileLoadedEvent)
-    {
-        var textFromFileLoaded = fileLoadedEvent.target.result;
-        document.getElementById("problem1funceval_modeltxt").value = textFromFileLoaded;
+    fileReader.onload = function (fileLoadedEvent) {
+      var textFromFileLoaded = fileLoadedEvent.target.result;
+      document.getElementById("problem1funceval_modeltxt").value = textFromFileLoaded;
     };
     fileReader.readAsText(fileToLoad, "UTF-8");
-}
-</script>
+  }
 
-<!-- drag and drop js -->
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script>
-//to open the html page in a new window when the svg element is clicked
-function openfunc() {
-    window.open("problem1funcmodel.html", target="_self");
-}
-</script>
- <script>
- //to open the html page in a new window when the svg element is clicked
-function openfunceval() {
-    window.open("problem1funceval.html", target="_self");
-}
-</script>
- <script>
- //to open the html page in a new window when the svg element is clicked
-function openfuncplan() {
-    window.open("problem1funcplan.html", target="_self");
-}
-</script>
-<script>
-//to open the html page in a new window when the svg element is clicked
-function openqual() {
-    window.open("problem1qualmodel.html", target="_self");
-}
-</script>
-<script>
-//to open the html page in a new window when the svg element is clicked
-function openquant() {
-    window.open("problem1quantmodel.html", target="_self");
-}
-</script>
-<script>
-//to open the html page in a new window when the svg element is clicked
-function opencalc() {
-    window.open("problem1calc.html", target="_self");
-}
-</script>
-<script>
-//to open the html page in a new window when the svg element is clicked
-function openeval() {
-    window.open("problem1eval.html", target="_self");
-}
+  //to open the html page in a new window when the svg element is clicked
+  function openfunc() {
+    window.open("/problem/1/tasks/functional/model", target = "_self");
+  }
+
+  // opens the page when the respective svg is clicked
+  function openfunceval() {
+    window.open("/problem/1/tasks/functional/evaluate", target = "_self");
+  }
+
+  // opens the page when the respective svg is clicked
+  function openfuncplan() {
+    window.open("/problem/1/tasks/functional/plan", target = "_self");
+  }
+
+
+  function openqual() {
+    window.open("/problem/1/tasks/qualititative/model", target = "_self");
+  }
+  // opens the document problem1qualmodel in the same frame when the function is called
+
+  function openquant() {
+    window.open("/problem/1/tasks/quantitative/model", target = "_self");
+  }
+  // opens the document problem1quantmodel in the same frame when the function is called
+
+  function opencalc() {
+    window.open("/problem/1/tasks/calculation/calculation", target = "_self");
+  }
+  // opens the document problem1calc in the same frame when the function is called
+
+  function openeval() {
+    window.open("/problem/1/tasks/evaluation/evaluation", target = "_self");
+  }
+
+  function openmap() {
+    window.open("/problem/1/map", target = "_self");
+  }
 </script>

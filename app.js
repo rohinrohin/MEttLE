@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var hbs = require('hbs');
 var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
@@ -20,7 +21,9 @@ require('./config/passport.js');
 
 var login = require('./routes/login');
 var custom = require('./routes/custom');
+var api = require('./routes/api');
 var static = require('./routes/static');
+var problem = require('./routes/problem');
 
 var app = express();
 
@@ -44,10 +47,26 @@ app.use(expressValidator());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(function(req, res, next) {
+  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
+app.use('/api', api);
+
+app.use(function (req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    req.flash('error', 'please authenticate first');
+    res.redirect('/login');
+  }
+});
+app.use('/problem/1/', problem);
 app.use('/', custom);
 app.use('/', static); // static html routing.
 

@@ -37,7 +37,9 @@
                     {{#if errorOccured}}
                       <div class="alert alert-danger">
                         {{#each errors}}
-                            <span style="display: block;"><strong>Error!</strong> {{this}}.</span>
+                            <span style="display: block;">
+                              <strong>Error!</strong> {{this}}.
+                            </span>
                         {{/each}}
                       </div>
                     {{/if}}

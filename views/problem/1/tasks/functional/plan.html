@@ -13,49 +13,15 @@
   <script src="/javascripts/vendor/go.js"></script>
   <script src="/javascripts/vendor/Buttons.js"></script>
   <script src="/javascripts/vendor/jquery-1.12.0.js"></script>
-  <script src="/javascripts/vendor/bootstrap.min.js"></script>
   <script src="/javascripts/vendor/jquery-ui.js"></script>
+  <script src="/javascripts/vendor/bootstrap.min.js"></script>
+
+  <link href="/stylesheets/vendor/bootstrap-editable.css" rel="stylesheet" />
+  <script src="/javascripts/vendor/bootstrap-editable.min.js"></script>
+
+  <link href="/stylesheets/custom/editable-custom.css" rel="stylesheet">
+
 </head>
-
-<script>
-  function myFunction() {
-    var popup = document.getElementById('myPopup');
-    popup.classList.toggle('show');//changes the class of the div to show
-    document.getElementById("problem1funcplan_map").src = "mapactive.png"//changes the src of image
-  }
-
-  function hidedetils() {
-    document.getElementById("func_desc").style.visibility = "hidden"
-  }
-
-  function openfunc() {
-    window.open("problem1funcmodel.html", target = "_self");
-  }
-
-  function openfunceval() {
-    window.open("problem1funceval.html", target = "_self");
-  }
-
-  function openfuncplan() {
-    window.open("problem1funcplan.html", target = "_self");
-  }
-
-  function openqual() {
-    window.open("problem1qualmodel.html", target = "_self");
-  }
-
-  function openquant() {
-    window.open("problem1quantmodel.html", target = "_self");
-  }
-
-  function opencalc() {
-    window.open("problem1calc.html", target = "_self");
-  }
-
-  function openeval() {
-    window.open("problem1eval.html", target = "_self");
-  }
-</script>
 
 <body>
   <section id="middlepart">
@@ -78,7 +44,7 @@
           <a href="/scratch" target="_blank"><input  id="problem1quantmodel_scribble"type="image" src="/images/scribble.png" style="width:110px;height:67px;"/></a>
         </div>
         <div class="col-sm-1" style="text-align:center;vertical-align:middle">
-          <a href="map" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
+          <a onclick="openmap();" target="_blank"><input id="problem1quantmodel_map" type="image" src="/images/map.png" style="width:110px;height:67px;"/></a>
         </div>
         <!-- In the above 12 lines images are being used for the various options and they are made to look like buttons and the anchor tag is added to load the appropriate pages-->
         <div class="col-sm-1" style="text-align:center"> <a href="logout"><button id="problem1quantmodel_logout" type="button" class="btn btn-default">Logout</button></a></div>
@@ -142,16 +108,132 @@
                 Plan the rest of the estimation process using this model
               </div>
             </div>
-            <div class="row activity">
-              <p style="font-size:12pt;"> Write your plan <a id="problem1funcplan_plan" href="https://goo.gl/forms/lCsAs4wYWiT0GICA3" target="_blank"> <span style="font-weight:bold;"> here </span> </a>.
-                </br> You may want to look at the <a id="problem1funcplan_hint" href="problem1map.html" target="_blank"><span style="font-weight:bold;">problem map.</span></a>                </p>
+            <div class="row activity" style="font-family: 'Lato'; text-align: left;">
+              <!-- <p style="font-size:12pt;"> Write your plan <a id="problem1funcplan_plan" href="https://goo.gl/forms/lCsAs4wYWiT0GICA3" target="_blank"> <span style="font-weight:bold;"> here </span> </a>. -->
+
+              <div class="question-wrap" style="margin-top:13px;">
+                <div class="question" style="font-size:1.2em!important;margin-bottom:0">1. What performance requirements from the car will dictate the power requirements and motor specifications?</div>
+                <div class="answer" style="margin: 5px 35px; font-size:1.2em!important;">
+                  <a class="text-area-editable" style="padding-left: 10px;padding-right: 10px;" id="problem0" data-type="textarea">{{answerData.[0]}}</a>
+                </div>
+              </div>
+              <div class="question-wrap" style="margin-top:13px;">
+                <div class="question" style="font-size:1.2em!important;margin-bottom:0">2. What steps will you follow to determine power and motor specifications using this model?</div>
+                <div class="answer" style="margin: 5px 35px; font-size:1.2em!important;">
+                  <a class="text-area-editable" style="padding-left: 10px;padding-right: 10px;" id="problem1" data-type="textarea">{{answerData.[1]}}</a>
+                </div>
+              </div>
+              </br> You may want to look at the <a id="problem1funcplan_hint" href="problem1map.html" target="_blank"><span style="font-weight:bold;">problem map.</span></a>              </p>
             </div>
             <div class="row activity">
-              <p style="font-size:12pt;"> <a href="problem1map.html"><button id="problem1funcplan_next" type="button" class="btn btn-info"> Choose the next task you want to do. </button></a>                </p>
+              <button onclick="openmap();" id="problem1funcplan_next" type="button" class="btn btn-info"> Choose the next task you want to do. </button>              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <script>
+    $(document).ready(function () {
+      $.fn.editable.defaults.mode = 'inline';
+      $('#problem0').editable({
+        inputClass: 'text-area-css',
+        name: 'generic',
+        type: 'text',
+        pk: 0,
+        url: '/api/problem/answer',
+        title: 'Enter username',
+        showbuttons: 'bottom',
+        rows: '5',
+        emptytext: 'click here to justify',
+        params: {
+          pageID: window.location.pathname,
+        },
+        success: function (response, newValue) {
+          response = JSON.parse(response);
+          console.log("editable: " + response.status);
+          if (response.status == 'error') {
+            return response.message;
+          } else if (response.status == 'redirect') {
+            console.log('here');
+            window.location.replace('/');
+          }
+        },
+      });
+
+      $('#problem1').editable({
+        inputClass: 'text-area-css',
+        name: 'generic',
+        type: 'text',
+        pk: 1,
+        url: '/api/problem/answer',
+        title: 'Enter username',
+        showbuttons: 'bottom',
+        rows: '5',
+        emptytext: 'click here to justify',
+        params: {
+          pageID: window.location.pathname,
+        },
+        success: function (response, newValue) {
+          response = JSON.parse(response);
+          console.log("editable: " + response.status);
+          if (response.status == 'error') {
+            return response.message;
+          } else if (response.status == 'redirect') {
+            console.log('here');
+            window.location.replace('/');
+          }
+        },
+      });
+    });
+
+    function myFunction() {
+      var popup = document.getElementById('myPopup');
+      popup.classList.toggle('show'); //changes the class of the div to show
+      document.getElementById("problem1funcplan_map").src = "mapactive.png" //changes the src of image
+    }
+
+    function hidedetils() {
+      document.getElementById("func_desc").style.visibility = "hidden"
+    }
+
+    function openfunc() {
+      window.open("/problem/1/tasks/functional/model", target = "_self");
+    }
+
+    // opens the page when the respective svg is clicked
+    function openfunceval() {
+      window.open("/problem/1/tasks/functional/evaluate", target = "_self");
+    }
+
+    // opens the page when the respective svg is clicked
+    function openfuncplan() {
+      window.open("/problem/1/tasks/functional/plan", target = "_self");
+    }
+
+
+    function openqual() {
+      window.open("/problem/1/tasks/qualititative/model", target = "_self");
+    }
+    // opens the document problem1qualmodel in the same frame when the function is called
+
+    function openquant() {
+      window.open("/problem/1/tasks/quantitative/model", target = "_self");
+    }
+    // opens the document problem1quantmodel in the same frame when the function is called
+
+    function opencalc() {
+      window.open("/problem/1/tasks/calculation/calculation", target = "_self");
+    }
+    // opens the document problem1calc in the same frame when the function is called
+
+    function openeval() {
+      window.open("/problem/1/tasks/evaluation/evaluation", target = "_self");
+    }
+
+    function openmap() {
+      window.open("/problem/1/map", target = "_self");
+    }
+  </script>
+
 </body>

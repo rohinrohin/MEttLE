@@ -7,9 +7,7 @@ var passport = require('passport');
 //   res.redirect('/login');
 // });
 
-router.get('/', function(req, res, next) {
-  res.redirect('/login');
-})
+
 
 router.get('/register', function(req, res, next) {
   var messages = req.flash('error');
@@ -25,7 +23,7 @@ router.post('/register', passport.authenticate('local.register', {
 router.get('/login', function(req, res, next) {
   var messages = req.flash('error');
   console.log(messages);
-  res.render('login', { errorOccured: messages.length > 0, errors: messages });
+  res.render('login', { errorOccured: messages.length > 0, errors: messages , hello: "ERROASDJASD"});
 })
 
 router.post('/login', passport.authenticate('local.login', {
@@ -33,5 +31,9 @@ router.post('/login', passport.authenticate('local.login', {
   failureRedirect: '/login',
   failureFlash: true,
 }));
+
+router.get('/', function(req, res, next) {
+  res.redirect('/login');
+})
 
 module.exports = router;

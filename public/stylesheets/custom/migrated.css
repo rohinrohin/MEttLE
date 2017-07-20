@@ -3,15 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-a, a:hover, a:visited, a:focus{
-	text-decoration: none;
-	color: black
-}
-a:link, a:active { 
-    color: black;
-    text-decoration: none;
-    cursor: auto;
-}
+
 .middlepart{
 	height: 100%;
 	overflow: hidden;
@@ -70,12 +62,12 @@ a:link, a:active {
 }
 
 .task_text{
-	color:#000; 
+	color:#000;
 	font-size:14pt
 }
 
 .subtask_text{
-	color:#000; 
+	color:#000;
 	font-size:12pt
 }
 
@@ -267,7 +259,7 @@ textarea:active, textarea:focus{
 	border-radius: 3px;
 	border: 2px solid #ccc;
 	padding-top: 0.5em;
-	padding-bottom: 0.5em; 
+	padding-bottom: 0.5em;
 	background: #eee;
 }
 .ki-category h5{
@@ -289,7 +281,7 @@ textarea:active, textarea:focus{
 	margin-bottom: 5px;
 	border-radius: 5px;
 	background : #eee;
-	padding: 0.30em 0.3em 0.3em 0.3em; 
+	padding: 0.30em 0.3em 0.3em 0.3em;
 }
 .drag-p{
 	background: #ffffff;
@@ -390,17 +382,17 @@ footer p{
 }
 
 .showme:hover {
-    opacity: 0.5;    
+    opacity: 0.5;
 }
 
 #func_desc{
     visibility: hidden
-        
+
 }
 
 #func_desc_hint{
     visibility: hidden
-        
+
 }
 
 
@@ -458,7 +450,7 @@ footer p{
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
+    from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
 
@@ -544,7 +536,7 @@ footer p{
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
+    from {opacity: 0;}
     to {opacity: 1;}
 }
 
@@ -574,7 +566,7 @@ footer p{
 .subtask_map{
 fill: #ffffff;
 stroke: #ccc;
-stroke-width: 1;	
+stroke-width: 1;
 }
 
 .subtask_text{
@@ -593,8 +585,8 @@ stroke-width: 1;
 	font-weight: bold;
 }
 .current_task_path{
-stroke:blue; 
-stroke-width:2; 
+stroke:blue;
+stroke-width:2;
 fill:none;
 }
 
@@ -603,5 +595,5 @@ fill:none;
 	color: black;
 	font-weight: bold;
 }
-	
+
 

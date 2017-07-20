@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "debug": "DEBUG=mettletele:* npm start"
+    "debug": "DEBUG=mettletele:* nodemon start"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
