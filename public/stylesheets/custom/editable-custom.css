@@ -33,7 +33,10 @@
 }
 
 .text-area-editable {
+<<<<<<< HEAD
     display: block;
+=======
+>>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
     font-family: Lato!important;
     position: relative;
     margin-bottom: 7px;

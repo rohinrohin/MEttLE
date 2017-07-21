@@ -15,6 +15,7 @@
   <script src="/javascripts/vendor/bootstrap.min.js"></script>
   <script src="/javascripts/vendor/jquery-ui.js"></script>
 
+<<<<<<< HEAD
   <link href="/stylesheets/vendor/bootstrap-editable.css" rel="stylesheet" />
   <script src="/javascripts/vendor/bootstrap-editable.min.js"></script>
 
@@ -24,6 +25,12 @@
   />
   <link rel="stylesheet" href="/stylesheets/custom/editable-custom.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script> -->
+=======
+  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/stylesheets/custom/editable-custom.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+>>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
 </head>
 
 <section id="middlepart">
@@ -125,6 +132,7 @@
           <div id="problem1funceval_2" class="row activity" style="visibility:hidden">
             <div class="problem-wrapper">
               <!-- <a id="problem1funceval_justify" href="https://goo.gl/forms/3uCN6vl9A7slKldK2" target="_blank"> <span style="font-weight:bold;"> here </span> </a>: -->
+<<<<<<< HEAD
               <div style="margin: 18px 35px; font-size:1.2em!important;">
                 <div class="question-wrap" style="margin-top:13px;">
                   <div class="question" style="font-size:1.2em!important;margin-bottom:0">1. Justify your response; "What is the source and user of power according to your model?"</div>
@@ -133,6 +141,10 @@
                   </div>
                 </div>
               </div>
+=======
+              <p style="font-size:1.2em;"> Justify your response; "What is the source and user of power according to your model?" </p>
+              <div class="text-area-editable" style="padding-left: 10px;padding-right: 10px;" id="model-justify" data-type="textarea"></div>
+>>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
               <div class="row" style="text-align:center" id="problem1funceval_hint" onclick='document.getElementById("problem1funceval_hintans").style.visibility = "visible"'><input type="image" src="/images/hintwndctive.png" style="width:120px;height:70px;" />
               </div>
             </div>
@@ -159,6 +171,7 @@
 </body>
 
 <script>
+<<<<<<< HEAD
   $(document).ready(function () {
     $.fn.editable.defaults.mode = 'inline';
     $('#problem0').editable({
@@ -187,6 +200,25 @@
     });
   });
 </script>
+=======
+    $(document).ready(function () {
+      $.fn.editable.defaults.mode = 'inline';
+      $('#model-justify').editable({
+        inputClass: 'text-area-css'
+        name: 'modelStatement',
+        type: 'text',
+        pk: 1,
+        url: '/post',
+        title: 'Enter username',
+        send: 'never',
+        showbuttons: 'bottom',
+        rows: '5',
+        emptytext: 'click here to enter the statement',
+      });
+    });
+  </script>
+
+>>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
 
 
 <script>
