@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "debug": "DEBUG=mettletele:* nodemon start"
+    "start": "node ./bin/www",
+    "debug": "DEBUG=mettletele:* npm start",
+    "deploy": "DEBUG=mettletele:* pm2 start ./bin/www --name mettle"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
