@@ -30,6 +30,7 @@ router.post('/problem/answer', function (req, res) {
   }
 
   Question.findOneAndUpdate({
+    pageID: newQuestion.pageID,
     questionID: newQuestion.questionID,
     userID: newQuestion.userID
   }, newQuestion, {
