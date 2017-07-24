@@ -8,10 +8,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
   <link href="/stylesheets/custom/migrated.css" rel="stylesheet">
-<<<<<<< HEAD
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-=======
->>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
 
 
   <script src="/javascripts/vendor/jquery-1.12.0.js"></script>
@@ -20,11 +17,7 @@
   <script src="/javascripts/vendor/go.js"></script>
   <script src="/javascripts/vendor/Buttons.js"></script>
 
-<<<<<<< HEAD
   <link href="/stylesheets/vendor/bootstrap-editable.css" rel="stylesheet" />
-=======
-  <link href="/stylesheets/vendor/bootstrap-editable.css" rel="stylesheet"/>
->>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
   <script src="/javascripts/vendor/bootstrap-editable.min.js"></script>
 
   <link href="/stylesheets/custom/editable-custom.css" rel="stylesheet">
@@ -152,7 +145,6 @@
             <!-- the space into which the words can be drooped to make a sentence -->
             <div class="col-lg-12 connectedSortable" id="problem1funcmodel_dropa"></div>
             <div class="row activity" style="text-align:center; font-size:12pt;">
-<<<<<<< HEAD
               <div class="question-wrap" style="margin-top:17px; font-family: 'Lato';">
                   <div class="question" style="font-size:1.2em!important;margin-bottom:0"> Enter the model statement below: </div>
                   <div class="answer" style="margin: 5px 35px; font-size:1.2em!important;">
@@ -162,13 +154,6 @@
               <!-- <span id="textAreaId" class="editable-field">Editstrap is a plugin that transforms your text into editable fields to update them easily. It is written using JQery API and it uses some Bootstrap plugins like datepicker and select2</span> -->
               <br>
               <!-- <a href="#" id="problem0" data-type="text" data-placement="right" data-title="Enter username">superuser</a>  -->
-=======
-              Enter the model statement below: <br> <br>
-              <div  class="text-area-editable" style="word-wrap: break-word; padding-left: 10px;padding-right: 10px; margin-left: 15px!important; margin-right: 15px!important;" id="model-statement" data-type="textarea"></div>
-              <!-- <span id="textAreaId" class="editable-field">Editstrap is a plugin that transforms your text into editable fields to update them easily. It is written using JQery API and it uses some Bootstrap plugins like datepicker and select2</span> -->
-              <br>
-              <!-- <a href="#" id="model-statement" data-type="text" data-placement="right" data-title="Enter username">superuser</a>  -->
->>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
               <br>
               <!-- <br> File name to save as: <input id="problem1funcmodel_FileNameToSaveAs">
               <button onclick="saveTextAsFile()">Save</button><br>
@@ -185,7 +170,6 @@
   <script>
     $(document).ready(function () {
       $.fn.editable.defaults.mode = 'inline';
-<<<<<<< HEAD
       $('#problem0').editable({
         inputClass: 'text-area-css',
         name: 'generic',
@@ -209,19 +193,6 @@
             window.location.replace('/');
           }
         },
-=======
-      $('#model-statement').editable({
-        inputclass: 'text-area-css',
-        name: 'modelStatement',
-        type: 'text',
-        pk: 1,
-        url: '/post',
-        title: 'Enter username',
-        send: 'never',
-        showbuttons: 'bottom',
-        rows: '5',
-        emptytext: 'click here to enter the statement',
->>>>>>> 624050f9d0ce31ed5d7d4333e63b678d4ff4849c
       });
     });
   </script>
