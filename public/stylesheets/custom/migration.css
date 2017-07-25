@@ -1,0 +1,47 @@
+.middlepart{
+	background-color: #ffffff;
+}
+.top-section{
+	background-color: #A38580;
+}
+.top-section p{
+	font-family: 'Lato', sans-serif;
+	font-size: 2em;
+	color: #fff;
+	margin-bottom: 0;
+	line-height: 75px;
+}
+.logout{
+	line-height: 95px;
+}
+.logout-btn{
+	padding: 4px 18px;
+	border-radius: 0px;
+	background: #953163;
+	font-family: 'Lato', sans-serif;
+	font-size: 0.9em;
+	font-weight: 100;
+	color: #fff;
+}
+.logout-btn:hover, .register-btn:hover{
+	color: #fff;
+	background: #6d2348;
+}
+.register{
+	background-color: #fff;
+	height: auto;
+}
+/*page1*/
+.help{
+	padding-top: 2.5em;
+}
+.help img{
+	cursor: pointer;
+}
+.info{
+	background-color: #D0CEBA;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	font-size: 12pt;
+	color: #00000;
+}

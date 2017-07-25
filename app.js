@@ -24,6 +24,7 @@ var custom = require('./routes/custom');
 var api = require('./routes/api');
 var static = require('./routes/static');
 var problem = require('./routes/problem');
+var log = require('./routes/log');
 
 var app = express();
 
@@ -47,16 +48,18 @@ app.use(expressValidator());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next) {
-  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+//   next();
+// });
 
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
+app.use('/api/log', log);
 app.use('/api', api);
+
 
 app.use(function (req, res, next) {
   if (req.isAuthenticated()) {
