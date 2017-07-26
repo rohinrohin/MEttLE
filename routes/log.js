@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var url = require('url');
+var winston = require('winston');
 
 // logger route
 router.use(function (req, res, next) {
@@ -63,8 +64,9 @@ var defaultLogger = {
           return '\t' + key + ': ' + payload[key];
         }).join('\n'), '\n'
       ].join('');
-
-      console[level].call(console, str);
+      payload.user = req.user.email;
+      winston.info(name, payload);
+      // console[level].call(console, str);
     }
   },
 

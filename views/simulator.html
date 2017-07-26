@@ -76,8 +76,7 @@
       logPerformance: false
     });
 
-    var pageID = 'simulator';
-    var userID = 'ram';
+    var pageID = window.location.pathname;
 
     // general event logger wrapper
     var $log = function (eventType, event, eventMeta) {
@@ -87,7 +86,6 @@
         id: eventMeta.id,
         eventMeta: eventMeta,
         pageID: pageID,
-        userID: userID
       });
     };
 

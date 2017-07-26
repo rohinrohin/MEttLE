@@ -6,7 +6,6 @@ var Question = require('../models/question');
 // serve static html
 router.get('/*', function (req, res, next) {
     console.log(req.user._id + " --> " + req.originalUrl);
-
     Question.find({
         userID: req.user._id,
         pageID: req.originalUrl

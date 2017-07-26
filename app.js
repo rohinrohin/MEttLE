@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var winston = require('winston');
+require('winston-mongodb').MongoDB;
+
 var hbs = require('hbs');
 var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
@@ -15,6 +18,11 @@ var flash = require("express-flash");
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/mettle', {
   useMongoClient: true,
+}, function() {
+  winston.add(winston.transports.MongoDB, {
+    db: mongoose.connections[0].db,
+    collection: 'logs'
+  });
 });
 
 require('./config/passport.js');
@@ -25,6 +33,7 @@ var api = require('./routes/api');
 var static = require('./routes/static');
 var problem = require('./routes/problem');
 var log = require('./routes/log');
+var logs = require('./routes/logs');
 
 var app = express();
 
@@ -57,6 +66,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
+app.use('/logs', logs);
 app.use('/api/log', log);
 app.use('/api', api);
 

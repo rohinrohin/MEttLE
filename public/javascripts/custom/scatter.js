@@ -131,7 +131,7 @@ function doPlot(id, xArr, xLabel, yArr, yLabel) {
     .html(function (d) {
       $log('graph', 'hover', {
         id: xLabel +" vs " + yLabel,
-        values: "(" + d[0] + "," + d[0] + ")"
+        values: "(" + d[0] + "," + d[1] + ")"
       })
       return xLabel + ": " + d[0] + "<br>" + yLabel + ": " + d[1];
     });

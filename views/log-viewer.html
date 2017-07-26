@@ -1,0 +1,119 @@
+<html>
+
+<head>
+  <title>Log Viewer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+
+
+
+</head>
+
+<!-- you will need this, important  -->
+<!-- <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">${message}</h5>
+      <small>${timestamp}</small>
+    </div>
+    <p class="mb-1">test</p>
+    <small>pageid: ${meta.pageID}</small>
+  </a>
+</div> -->
+
+
+
+<body>
+  <div class="container" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+    <span> LOG VIEWER | </span><input id="user-email" name="email" />
+    <input type="button" id="submitbtn" value="Submit" />
+    <div id="answer" style="margin-top: 15px;"></div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+
+  <script src="/javascripts/vendor/moment.min.js"></script>
+  <script src="/javascripts/vendor/moment-timezone-with-data.min.js"></script>
+
+  <script src="/javascripts/vendor/json2html.js"></script>
+  <script src="/javascripts/vendor/jquery.json2html.js"></script>
+
+
+  <script src="/javascripts/vendor/json-viewer.js"></script>
+
+  <script>
+    document.getElementById("submitbtn").addEventListener('click', function () {
+      var email = document.getElementById("user-email").value;
+      $.post("/logs", {
+        userEmail: email
+      }, function (data) {
+        var response = JSON.parse(data);
+        response.forEach(function (element, index) {
+          // console.log(element.timestamp);
+          response[index].timestamp = moment(element.timestamp, moment.ISO_8601).format("LLL");
+        }, this);
+        transform = {
+          "<>": "div",
+          "class": "list-group expanded collapsed",
+          "html": [{
+            "<>": "a",
+            "href": "#",
+            "class": "list-group-item list-group-item-action flex-column align-items-start",
+            "html": [{
+                "<>": "div",
+                "class": "d-flex w-100 justify-content-between",
+                "html": [{
+                    "<>": "h5",
+                    "class": "mb-1",
+                    "html": "${message}"
+                  },
+                  {
+                    "<>": "small",
+                    "html": "${timestamp}"
+                  }
+                ]
+              },
+              {
+                "<>": "p",
+                "class": "mb-1 json-wrappers",
+                "html": function () {
+                  return JSON.stringify(this.meta.eventMeta);
+                }
+              },
+              {
+                "<>": "small",
+                "html": "pageid: ${meta.pageID}"
+              }
+            ]
+          }]
+        }
+        document.getElementById('answer').innerHTML = json2html.transform(response, transform);
+        $("p").each(function () {
+          $(this).jsonview($(this).text())
+        });
+      });
+
+    });
+
+
+  </script>
+
+  <style>
+    .json-wrappers {
+      font-size: 12px!important;
+      text-align: left!important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/stylesheets/vendor/json-viewer.css">
+
+
+</body>
+
+
+</html>

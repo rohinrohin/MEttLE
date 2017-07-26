@@ -8,6 +8,14 @@ var passport = require('passport');
 // });
 
 
+function isAlreadyAuth (req, res, next) {
+  if (req.isAuthenticated()) {
+    res.redirect('/problems');
+  } else {
+    next();
+  }
+};
+
 
 router.get('/register', function(req, res, next) {
   var messages = req.flash('error');
@@ -20,10 +28,10 @@ router.post('/register', passport.authenticate('local.register', {
   failureFlash: true,
 }));
 
-router.get('/login', function(req, res, next) {
+router.get('/login', isAlreadyAuth, function(req, res, next) {
   var messages = req.flash('error');
   console.log(messages);
-  res.render('login', { errorOccured: messages.length > 0, errors: messages , hello: "ERROASDJASD"});
+  res.render('login', { errorOccured: messages.length > 0, errors: messages });
 })
 
 router.post('/login', passport.authenticate('local.login', {
