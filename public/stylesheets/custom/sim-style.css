@@ -100,6 +100,7 @@ body {
   justify-content: space-around;
 }
 
+
 .scatter-macro-1 {
   margin-left: 10px;
 }
@@ -187,9 +188,10 @@ body {
   flex-grow: 1;
 }
 
-.macro-sim-svg-wrapper {
+.svg-wrapper {
+  align-content: center;
+  height: 95%;
   display: flex;
-  flex-grow: 1;
   justify-content: center;
   align-items: center;
 }
